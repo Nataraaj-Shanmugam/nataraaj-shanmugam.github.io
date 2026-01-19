@@ -1,0 +1,152 @@
+[
+  {
+    "Skill Category": "Test Automation",
+    "Skill Description": "End-to-end automation frameworks & tools",
+    "Skills": [
+      {
+        "name": "Selenium WebDriver",
+        "icon": "fas fa-code",
+        "link": "https://selenium.dev/",
+        "score": "9"
+      },
+      {
+        "name": "TestNG & JUnit",
+        "icon": "fas fa-flask",
+        "link": "https://testng.org/",
+        "score": "9"
+      },
+      {
+        "name": "Playwright",
+        "icon": "fas fa-theater-masks",
+        "link": "https://playwright.dev/",
+        "score": "8"
+      },
+      {
+        "name": "Cucumber BDD",
+        "icon": "fas fa-leaf",
+        "link": "https://cucumber.io/",
+        "score": "9"
+      },
+      {
+        "name": "Appium",
+        "icon": "fas fa-mobile-alt",
+        "link": "https://appium.io/",
+        "score": "7"
+      },
+      {
+        "name": "Rest Assured",
+        "icon": "fas fa-exchange-alt",
+        "link": "https://rest-assured.io/",
+        "score": "9"
+      }
+    ]
+  },
+  {
+    "Skill Category": "Programming",
+    "Skill Description": "Core development languages & scripting",
+    "Skills": [
+      {
+        "name": "Java",
+        "icon": "fab fa-java",
+        "link": "https://docs.oracle.com/en/java/",
+        "score": "9"
+      },
+      {
+        "name": "Python",
+        "icon": "fab fa-python",
+        "link": "https://docs.python.org/",
+        "score": "7"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "fab fa-js",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        "score": "6"
+      },
+      {
+        "name": "Shell Scripting",
+        "icon": "fas fa-terminal",
+        "link": "https://www.gnu.org/software/bash/manual/",
+        "score": "8"
+      }
+    ]
+  },
+  {
+    "Skill Category": "Performance Testing",
+    "Skill Description": "Load, stress & performance optimization",
+    "Skills": [
+      {
+        "name": "JMeter",
+        "icon": "fas fa-chart-line",
+        "link": "https://jmeter.apache.org/",
+        "score": "6"
+      },
+      {
+        "name": "Locust",
+        "icon": "fas fa-bug",
+        "link": "https://locust.io/",
+        "score": "7"
+      },
+      {
+        "name": "Google Lighthouse",
+        "icon": "fab fa-google",
+        "link": "https://developers.google.com/web/tools/lighthouse",
+        "score": "7"
+      },
+      {
+        "name": "Gatling",
+        "icon": "fas fa-stopwatch",
+        "link": "https://gatling.io/",
+        "score": "4"
+      }
+    ]
+  },
+  {
+    "Skill Category": "DevOps & CI/CD",
+    "Skill Description": "Pipeline automation & deployment",
+    "Skills": [
+      {
+        "name": "Docker",
+        "icon": "fab fa-docker",
+        "link": "https://docs.docker.com/",
+        "score": "8"
+      },
+      {
+        "name": "Jenkins",
+        "icon": "fab fa-jenkins",
+        "link": "https://www.jenkins.io/doc/",
+        "score": "9"
+      },
+      {
+        "name": "GitHub Actions",
+        "icon": "fab fa-github",
+        "link": "https://docs.github.com/en/actions",
+        "score": "7"
+      },
+      {
+        "name": "Azure DevOps",
+        "icon": "fab fa-microsoft",
+        "link": "https://docs.microsoft.com/en-us/azure/devops/",
+        "score": "7"
+      }
+    ]
+  },
+  {
+    "Skill Category": "Cloud & Database",
+    "Skill Description": "Cloud platforms & data management",
+    "Skills": [
+      {
+        "name": "AWS",
+        "icon": "fab fa-aws",
+        "link": "https://docs.aws.amazon.com/",
+        "score": "7"
+      },
+      {
+        "name": "MySQL",
+        "icon": "fas fa-database",
+        "link": "https://dev.mysql.com/doc/",
+        "score": "7"
+      }
+    ]
+  }
+]

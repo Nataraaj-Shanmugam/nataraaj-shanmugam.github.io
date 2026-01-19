@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Rajesh Kumar",
+        "role": "Engineering Manager, Share.Market",
+        "company": "PhonePe",
+        "photo": "https://ui-avatars.com/api/?name=Rajesh+Kumar&background=2563eb&color=fff&size=80",
+        "text": "Nataraaj transformed our QA practice from a bottleneck into a competitive advantage. His framework reduced our regression time by 61% and enabled us to achieve daily releases. His mentorship elevated our entire team's capabilities.",
+        "linkedin": "#"
+    },
+    {
+        "name": "Priya Sharma",
+        "role": "Senior SDET",
+        "company": "Verizon Communications",
+        "photo": "https://ui-avatars.com/api/?name=Priya+Sharma&background=2563eb&color=fff&size=80",
+        "text": "Working under Nataraaj's guidance was transformative for my career. His API automation framework approach and mentorship helped me transition from manual testing to leading automation initiatives. I was promoted to Senior SDET within 18 months.",
+        "linkedin": "#"
+    },
+    {
+        "name": "Amit Patel",
+        "role": "Director of Engineering",
+        "company": "Kotak Mahindra Bank",
+        "photo": "https://ui-avatars.com/api/?name=Amit+Patel&background=2563eb&color=fff&size=80",
+        "text": "Nataraaj brings a rare combination of deep technical expertise and strategic thinking. His AI-powered test generation implementation has been a game-changer, reducing our manual effort by 45% while improving quality metrics across the board.",
+        "linkedin": "#"
+    },
+    {
+        "name": "Sneha Reddy",
+        "role": "QA Engineer",
+        "company": "Share.Market",
+        "photo": "https://ui-avatars.com/api/?name=Sneha+Reddy&background=2563eb&color=fff&size=80",
+        "text": "As a junior engineer, Nataraaj's mentorship was invaluable. He didn't just teach me automation tools - he taught me how to think strategically about quality. His emphasis on test architecture fundamentals gave me skills that set me apart.",
+        "linkedin": "#"
+    }
+]

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <title>Technical Insights & Learning | Nataraaj Shanmugam</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: var(--gray-50);
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+            padding: 0 1rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-900);
+            color: white !important;
+            border: none;
+            padding: 0.8rem 1.75rem;
+            border-radius: var(--border-radius-lg);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-btn:hover i {
+            transform: translateX(-3px);
+        }
+
+        .accordion-section {
+            max-width: 800px;
+            margin: 1.5rem auto;
+            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--gray-200);
+            background: #fff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .accordion-header {
+            cursor: pointer;
+            padding: 1.5rem 2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gray-200);
+            transition: background 0.2s;
+        }
+
+        .accordion-header i {
+            margin-right: 1rem;
+            font-size: 1.6rem;
+            color: var(--primary);
+        }
+
+        .accordion-header.active {
+            background: var(--gray-50);
+            color: var(--gray-900);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .accordion-content ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .accordion-content li {
+            margin: 0 0 1rem 0;
+            padding: 0;
+        }
+
+        .accordion-content a {
+            color: var(--primary) !important;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            background: var(--gray-50);
+        }
+
+        .accordion-content a:hover {
+            background: var(--primary-50);
+            color: var(--primary-dark) !important;
+        }
+
+        .content-desc {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .accordion-section {
+                margin: 1rem;
+            }
+
+            .accordion-header,
+            .accordion-content {
+                padding: 1rem 1.25rem;
+            }
+
+            .back-nav {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back-nav">
+        <a href="../index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <div class="container section" style="margin-top:2rem;">
+        <h1 class="section-title" style="text-align:center;">Technical Insights & Learning</h1>
+        <p class="section-subtitle" style="text-align:center; margin-bottom:2rem;">
+            Curated technical content, tutorials, and insights: LeetCode, Data Structures, Algorithms, Java, and more.
+        </p>
+        <div id="accordionContainer"></div>
+    </div>
+
+    <script>
+        // Meta info for each section
+        // const insightsMeta = {
+        //     leetcode: {
+        //         icon: 'fas fa-calculator',
+        //         title: 'LeetCode Visualizations',
+        //         desc: 'Step-by-step video breakdowns and visuals for trending LeetCode problems, explained in crisp English.',
+        //     },
+        //     datastructures: {
+        //         icon: 'fas fa-code-branch',
+        //         title: 'Data Structures',
+        //         desc: 'Practical guides and advanced usage of core data structures for real-world automation and development.',
+        //     },
+        //     algorithms: {
+        //         icon: 'fas fa-puzzle-piece',
+        //         title: 'Algorithm Techniques',
+        //         desc: 'Deep dives into core algorithmic strategies for technical interviews and high-performance automation.',
+        //     },
+        //     java: {
+        //         icon: 'fab fa-java',
+        //         title: 'Java Nuance',
+        //         desc: 'Advanced guides on JVM, Java OOP, and modern features for building robust test frameworks.',
+        //     }
+        // };
+
+        Promise.all([
+            fetch('../data/insights.json').then(r => r.json()),
+            fetch('../data/insights-meta.json').then(r => r.json())
+        ])
+            .then(([insightsData, insightsMeta]) => {
+                // Get section from URL parameter
+                function getSectionFromURL() {
+                    const params = new URLSearchParams(window.location.search);
+                    return params.get('section');
+                }
+
+                // Render accordions
+                function renderAccordion(insightsData, openSection) {
+                    const container = document.getElementById('accordionContainer');
+                    container.innerHTML = '';
+
+                    Object.entries(insightsMeta).forEach(([section, meta]) => {
+                        const posts = insightsData[section] || [];
+                        const isOpen = section === openSection;
+                        const postsList = posts.length
+                            ? `<ul>${posts.map(post => `
+                        <li>
+                            <a href="${post.url}" target="_blank" rel="noopener">
+                                <i class="fas fa-arrow-right"></i>
+                                ${post.title}
+                            </a>
+                        </li>
+                    `).join('')}</ul>`
+                            : `<div style="color:var(--gray-500);">No content yet.</div>`;
+
+                        container.innerHTML += `
+                    <div class="accordion-section">
+                        <div class="accordion-header${isOpen ? ' active' : ''}" data-section="${section}">
+                            <i class="${meta.icon}"></i>${meta.title}
+                        </div>
+                        <div class="accordion-content" id="content-${section}" style="display:${isOpen ? 'block' : 'none'};">
+                            <p class="content-desc">${meta.desc}</p>
+                            ${postsList}
+                        </div>
+                    </div>
+                `;
+                    });
+
+                    // Add click listeners
+                    document.querySelectorAll('.accordion-header').forEach(header => {
+                        header.onclick = () => {
+                            document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+                            document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
+                            const section = header.getAttribute('data-section');
+                            header.classList.add('active');
+                            document.getElementById('content-' + section).style.display = 'block';
+                            const newUrl = window.location.pathname + '?section=' + section;
+                            window.history.replaceState({}, '', newUrl);
+                        };
+                    });
+                }
+
+                // Load insights data
+                fetch('../data/insights.json')
+                    .then(r => r.json())
+                    .then(insightsData => {
+                        const openSection = getSectionFromURL() || Object.keys(insightsMeta)[0];
+                        renderAccordion(insightsData, openSection);
+                    })
+                    .catch(err => {
+                        document.getElementById('accordionContainer').innerHTML =
+                            '<div style="color:var(--danger);text-align:center;padding:3rem;">Failed to load insights. Please try again.</div>';
+                        console.error('Error loading insights.json:', err);
+                    });
+            })
+    </script>
+</body>
+</html>

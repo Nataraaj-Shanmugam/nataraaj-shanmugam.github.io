@@ -1,0 +1,70 @@
+{
+  "leetcode": [
+    {
+      "title": "LeetCode 345: Reverse Vowels of a String",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_leetcode-algorithm-dsa-activity-7353687853660336129-mwXx",
+      "showOnHome": true
+    },
+    {
+      "title": "LeetCode 283: Move Zeroes",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_leetcode-algorithm-dsa-activity-7352925299723919360-YRFb",
+      "showOnHome": true
+    }
+  ],
+  "datastructures": [
+    {
+      "title": "Java Arrays: From Basics to Advanced",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_mastering-arrays-in-java-from-basics-to-activity-7343125728672043008-D-WA",
+      "showOnHome": true
+    },
+    {
+      "title": "Time & Space Complexity",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_masteringtimespacecomplexityforfastertests-activity-7331533093469609984-VFW5",
+      "showOnHome": true
+    }
+  ],
+  "algorithms": [
+    {
+      "title": "Two Pointer Algorithm",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_two-pointer-algorithm-activity-7345662440606527490-m8Rw",
+      "showOnHome": true
+    },
+    {
+      "title": "Sliding Window Algorithm",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_mastering-static-sliding-window-activity-7348199156177346560-pLX4",
+      "showOnHome": true
+    },
+    {
+      "title": "Expand From Center Algorithm",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_understanding-expand-from-center-algorithm-activity-7353291463348146178-BDzf",
+      "showOnHome": true
+    },
+    {
+      "title": "Dutch Flag Algorithm",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_master-the-dutch-flag-algorithm-activity-7350754740382707714-F84i",
+      "showOnHome": true
+    }
+  ],
+  "java": [
+    {
+      "title": "JVM Memory Management & GC",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_mastering-jvm-memory-gc-activity-7340581490088398848-W91X",
+      "showOnHome": true
+    },
+    {
+      "title": "Java OOP: Blindspots",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_javaoopblindspots-activity-7338044763209723906-Opm0",
+      "showOnHome": true
+    },
+    {
+      "title": "Modern Java Features",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_modern-java-for-developers-java823-activity-7335508062734098433-bCtu",
+      "showOnHome": false
+    },
+    {
+      "title": "Java Internals: Kernel to Console",
+      "url": "https://www.linkedin.com/posts/nataraajshanmugam-sdet_java-internals-from-kernels-to-console-activity-7332956211119562753-1j5f",
+      "showOnHome": true
+    }
+  ]
+}

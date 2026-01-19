@@ -1,0 +1,26 @@
+{
+    "leetcode": {
+        "icon": "fas fa-calculator",
+        "title": "LeetCode Visualizations",
+        "desc": "Step-by-step video breakdowns and visuals for trending LeetCode problems.",
+        "moreLabel": "View All Solutions"
+    },
+    "datastructures": {
+        "icon": "fas fa-code-branch",
+        "title": "Data Structures",
+        "desc": "Practical guides and advanced usage of core data structures.",
+        "moreLabel": "View All Guides"
+    },
+    "algorithms": {
+        "icon": "fas fa-puzzle-piece",
+        "title": "Algorithm Techniques",
+        "desc": "Deep dives into core algorithmic strategies for technical interviews.",
+        "moreLabel": "View All Techniques"
+    },
+    "java": {
+        "icon": "fab fa-java",
+        "title": "Java Nuance",
+        "desc": "Advanced guides on JVM, Java OOP, and modern features.",
+        "moreLabel": "View All Java Content"
+    }
+}

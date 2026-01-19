@@ -1,0 +1,75 @@
+[
+    {
+        "icon": "fas fa-exchange-alt",
+        "title": "cURL to Code Converter",
+        "description": "An intelligent utility that transforms cURL commands into production-ready automation code snippets across multiple programming languages.",
+        "techStack": ["Java", "REST Assured", "HTTP", "Code Generation"],
+        "caseStudy": {
+            "problem": "API testers spent 2-3 hours per day converting API documentation and cURL commands into automation code, leading to delays and inconsistencies.",
+            "solution": "Developed an intelligent parser that automatically converts cURL commands to production-ready code in 5+ languages (Java, Python, JavaScript, etc.) with proper error handling and best practices.",
+            "results": [
+                "70% faster API test creation",
+                "Standardized code quality across team",
+                "Reduced onboarding time for new team members by 40%",
+                "Used by 50+ developers across organization"
+            ]
+        },
+        "highlights": ["Supports 5+ programming languages", "70% faster API test creation", "Zero-config setup"],
+        "github": "https://github.com/Nataraaj-Shanmugam/cURL-to-Code-convertor"
+    },
+    {
+        "icon": "fas fa-magic",
+        "title": "API Automation Code Generator",
+        "description": "Advanced framework that auto-generates comprehensive API automation test suites from OpenAPI specifications.",
+        "techStack": ["Java", "OpenAPI", "REST Assured", "Code Generation"],
+        "caseStudy": {
+            "problem": "Manual creation of API tests from OpenAPI specs took 5-7 days per microservice, with high risk of missing edge cases and inconsistent test patterns.",
+            "solution": "Built an intelligent code generator that parses OpenAPI/Swagger specs and automatically creates complete test suites including positive/negative scenarios, authentication, and validation.",
+            "results": [
+                "70% reduction in manual effort (from 5 days to 1.5 days)",
+                "95% test coverage achieved automatically",
+                "Eliminated human error in test case design",
+                "Generated 10,000+ test cases across 20+ microservices"
+            ]
+        },
+        "highlights": ["Auto-generates from OpenAPI specs", "70% reduction in manual effort", "95% coverage"],
+        "github": "https://github.com/Nataraaj-Shanmugam/API_Framework_With_CodeGenerator"
+    },
+    {
+        "icon": "fas fa-sitemap",
+        "title": "BDD Framework with CI/CD",
+        "description": "Behavior-driven development framework featuring complete CI/CD integration, automated reporting, and GitHub Pages deployment.",
+        "techStack": ["Cucumber", "Selenium", "Jenkins", "GitHub Actions"],
+        "caseStudy": {
+            "problem": "Manual test execution and reporting consumed 8-10 hours per sprint, with stakeholders lacking real-time visibility into test results and quality metrics.",
+            "solution": "Implemented comprehensive BDD framework with CI/CD pipeline automation, automated HTML report generation, and GitHub Pages deployment for stakeholder access.",
+            "results": [
+                "Zero manual intervention in test execution",
+                "Real-time test results accessible to all stakeholders",
+                "100% visibility into quality metrics",
+                "Reduced sprint cycle time by 20%"
+            ]
+        },
+        "highlights": ["Full CI/CD integration", "Automated reporting & deployment", "Real-time dashboards"],
+        "github": "https://github.com/Nataraaj-Shanmugam/BDD-framework-with-NBA-Project",
+        "demo": "https://nataraaj-shanmugam.github.io/BDD-framework-with-NBA-Project/project-info.html"
+    },
+    {
+        "icon": "fas fa-flask",
+        "title": "Enterprise TDD Framework",
+        "description": "A comprehensive test-driven development automation framework built with industry-standard design patterns.",
+        "techStack": ["Java", "Selenium", "TestNG", "Page Object Model"],
+        "caseStudy": {
+            "problem": "Existing test automation was brittle, with 60% of tests failing due to UI changes. Maintenance consumed 40% of QA team's time.",
+            "solution": "Architected enterprise-grade framework using Page Object Model, Factory pattern, and data-driven approach. Implemented smart element waiting strategies and comprehensive reporting.",
+            "results": [
+                "Test stability improved from 40% to 95%",
+                "Maintenance effort reduced by 65%",
+                "Framework adopted across 5 product teams",
+                "Test execution parallelization reduced runtime by 75%"
+            ]
+        },
+        "highlights": ["Industry-standard design patterns", "Highly maintainable", "95% test stability"],
+        "github": "https://github.com/Nataraaj-Shanmugam/TDD_Framework"
+    }
+]
