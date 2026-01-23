@@ -1,0 +1,47 @@
+[
+  {
+    "year": "2015",
+    "title": "Software Associate & Programmer Analyst",
+    "company": "Cognizant Technology Solutions",
+    "duration": "May 2015 – Nov 2019 | Chennai, India",
+    "achievements": [
+      "Slashed manual effort by 65% via new automation framework.",
+      "Automated 3 legacy projects, saving 120+ hours per sprint.",
+      "Mentored 10+ engineers to mid-level promotions.",
+      "Boosted scenario validation by 200% using data-driven testing."
+    ]
+  },
+  {
+    "year": "2019",
+    "title": "Member of Technical Staff - 2",
+    "company": "Verizon Communications",
+    "duration": "Dec 2019 – Apr 2021 | Chennai, India",
+    "achievements": [
+      "Accelerated release velocity 3x by halving API testing cycles.",
+      "Optimized 10M+ txn/day platform, improving response time by 35%.",
+      "Reduced defect escape rate by 45% via real-time dashboards."
+    ]
+  },
+  {
+    "year": "2021",
+    "title": "Lead SDET",
+    "company": "Share.Market by PhonePe",
+    "duration": "May 2021 – Jul 2024 | Bengaluru, India",
+    "achievements": [
+      "Built test ecosystem for 5M+ users; achieved zero critical incidents.",
+      "Scaled test coverage 40%→95%, catching 300+ critical defects.",
+      "Slashed regression time by 61%, enabling daily deployments."
+    ]
+  },
+  {
+    "year": "2024",
+    "title": "Lead SDET",
+    "company": "Kotak Mahindra Bank",
+    "duration": "Jul 2024 – Present | Bengaluru, India",
+    "achievements": [
+      "Leading QE for 40M+ user platform, ensuring 99.99% uptime.",
+      "Deployed AI test generation, cutting manual effort by 45%.",
+      "Architected cloud test infra, cutting costs by 40%."
+    ]
+  }
+]

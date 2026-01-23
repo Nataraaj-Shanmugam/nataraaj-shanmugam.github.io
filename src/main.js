@@ -23,6 +23,36 @@ if (navToggle) {
     });
 }
 
+// Fetch and Render Experience
+fetch('data/experience.json')
+    .then(response => response.json())
+    .then(experienceData => {
+        const timelineGrid = document.querySelector('.timeline-grid');
+        if (timelineGrid) {
+            timelineGrid.innerHTML = experienceData.map(exp => `
+                <div class="timeline-card timeline-card-hidden timeline-card-transition">
+                    <div class="timeline-year">${exp.year}</div>
+                    <h3 class="job-title">${exp.title}</h3>
+                    <p class="company">${exp.company}</p>
+                    <p class="duration">${exp.duration}</p>
+                    <ul class="timeline-achievements">
+                        ${exp.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
+            // Re-apply intersection observer for dynamically loaded cards
+            const timelineCards = document.querySelectorAll('.timeline-card');
+            timelineCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.remove('timeline-card-hidden');
+                    card.classList.add('timeline-card-visible');
+                }, index * 150);
+            });
+        }
+    })
+    .catch(error => console.error('Error loading experience:', error));
+
 // Fetch and Render Certifications
 fetch('data/certifications.json')
     .then(response => response.json())
@@ -114,13 +144,17 @@ fetch('data/skills.json')
         console.error('Error loading skills.json:', err);
     });
 
-// Fetch and Render Projects
+// Fetch and Render Projects - WITH VIEW MORE FUNCTIONALITY
 fetch('data/projects.json')
     .then(response => response.json())
     .then(projectsData => {
         const projectsGrid = document.getElementById('projectsGrid');
         if (projectsGrid) {
-            projectsGrid.innerHTML = projectsData.map(project => `
+            // Show only first 3 projects initially
+            const initialProjects = projectsData.slice(0, 3);
+            const remainingProjects = projectsData.slice(3);
+
+            const renderProject = (project) => `
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon"><i class="${project.icon}"></i></div>
@@ -166,7 +200,40 @@ fetch('data/projects.json')
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `;
+
+            // Render initial projects
+            projectsGrid.innerHTML = initialProjects.map(renderProject).join('');
+
+            // Add "View More Projects" button if there are more projects
+            if (remainingProjects.length > 0) {
+                const viewMoreContainer = document.createElement('div');
+                viewMoreContainer.className = 'view-more-container';
+                viewMoreContainer.innerHTML = `
+                    <a href="#" class="view-more-btn" id="viewMoreProjectsBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        View More Projects (${remainingProjects.length})
+                    </a>
+                `;
+                projectsGrid.parentElement.appendChild(viewMoreContainer);
+
+                // Add click handler for View More button
+                document.getElementById('viewMoreProjectsBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Add remaining projects
+                    projectsGrid.innerHTML += remainingProjects.map(renderProject).join('');
+
+                    // Remove the button
+                    viewMoreContainer.remove();
+
+                    // Smooth scroll to first new project
+                    const allCards = projectsGrid.querySelectorAll('.project-card');
+                    if (allCards.length > 3) {
+                        allCards[3].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            }
         }
     })
     .catch(error => console.error('Error loading projects:', error));
@@ -208,7 +275,7 @@ Promise.all([
     })
     .catch(err => console.error('Error loading insights:', err));
 
-
+// Navigation and Scroll Behavior
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('.section, .hero');
@@ -226,7 +293,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-let lastScrollY = window.scrollY;
 let ticking = false;
 
 function updateNavbar() {
@@ -236,12 +302,6 @@ function updateNavbar() {
     } else {
         navbar.classList.remove('scrolled');
     }
-    if (currentScrollY > lastScrollY && currentScrollY > 200) {
-        navbar.style.transform = 'translateY(-100%)';
-    } else {
-        navbar.style.transform = 'translateY(0)';
-    }
-    lastScrollY = currentScrollY;
     ticking = false;
 }
 
@@ -294,19 +354,11 @@ document.querySelectorAll('.btn').forEach(button => {
         const x = e.clientX - rect.left - size / 2;
         const y = e.clientY - rect.top - size / 2;
 
-        ripple.style.cssText = `
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            width: ${size}px;
-            height: ${size}px;
-            left: ${x}px;
-            top: ${y}px;
-            pointer-events: none;
-            z-index: 1000;
-        `;
+        ripple.classList.add('ripple');
+        ripple.style.width = `${size}px`;
+        ripple.style.height = `${size}px`;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
 
         this.style.position = 'relative';
         this.style.overflow = 'hidden';
@@ -315,40 +367,6 @@ document.querySelectorAll('.btn').forEach(button => {
         setTimeout(() => ripple.remove(), 600);
     });
 });
-
-const style = document.createElement('style');
-style.textContent = `@keyframes ripple { to { transform: scale(4); opacity: 0; } }`;
-document.head.appendChild(style);
-
-const timelineCards = document.querySelectorAll('.timeline-card');
-const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 150);
-        }
-    });
-}, {
-    rootMargin: '50px',
-    threshold: 0.1
-});
-
-timelineCards.forEach((card) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    timelineObserver.observe(card);
-});
-
-const hero = document.querySelector('.hero');
-function updateParallax() {
-    const scrolled = window.pageYOffset;
-    const parallax = scrolled * 0.3;
-    if (hero) hero.style.transform = `translateY(${parallax}px)`;
-}
-window.addEventListener('scroll', updateParallax);
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {
