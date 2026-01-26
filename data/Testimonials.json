@@ -1,34 +1,18 @@
 [
     {
-        "name": "Rajesh Kumar",
-        "role": "Engineering Manager, Share.Market",
-        "company": "PhonePe",
-        "photo": "https://ui-avatars.com/api/?name=Rajesh+Kumar&background=2563eb&color=fff&size=80",
-        "text": "Nataraaj transformed our QA practice from a bottleneck into a competitive advantage. His framework reduced our regression time by 61% and enabled us to achieve daily releases. His mentorship elevated our entire team's capabilities.",
-        "linkedin": "#"
+        "name": "HariVenkata Lakshmi Kumar Mynampati",
+        "role": "Manager",
+        "company": "Verizon",
+        "photo": "https://ui-avatars.com/api/?name=HariVenkata+Lakshmi+Kumar+Mynampati&background=2563eb&color=fff&size=80",
+        "text": "Nataraj is a highly proactive and dedicated Test Automation Engineer with a deep understanding of the full testing lifecycle. During our time together, I was consistently impressed by his mastery of the Java-Selenium-Cucumber stack. He played a pivotal role in our BDD framework, ensuring our regression and functional testing suites were both robust and scalable. His ability to dive deep into complex API testing scenarios and deliver clean, efficient code is what sets him apart. I highly recommend him for any senior automation role.",
+        "linkedin": "https://www.linkedin.com/in/me/details/recommendations/"
     },
     {
-        "name": "Priya Sharma",
-        "role": "Senior SDET",
-        "company": "Verizon Communications",
-        "photo": "https://ui-avatars.com/api/?name=Priya+Sharma&background=2563eb&color=fff&size=80",
-        "text": "Working under Nataraaj's guidance was transformative for my career. His API automation framework approach and mentorship helped me transition from manual testing to leading automation initiatives. I was promoted to Senior SDET within 18 months.",
-        "linkedin": "#"
-    },
-    {
-        "name": "Amit Patel",
-        "role": "Director of Engineering",
-        "company": "Kotak Mahindra Bank",
-        "photo": "https://ui-avatars.com/api/?name=Amit+Patel&background=2563eb&color=fff&size=80",
-        "text": "Nataraaj brings a rare combination of deep technical expertise and strategic thinking. His AI-powered test generation implementation has been a game-changer, reducing our manual effort by 45% while improving quality metrics across the board.",
-        "linkedin": "#"
-    },
-    {
-        "name": "Sneha Reddy",
-        "role": "QA Engineer",
-        "company": "Share.Market",
-        "photo": "https://ui-avatars.com/api/?name=Sneha+Reddy&background=2563eb&color=fff&size=80",
-        "text": "As a junior engineer, Nataraaj's mentorship was invaluable. He didn't just teach me automation tools - he taught me how to think strategically about quality. His emphasis on test architecture fundamentals gave me skills that set me apart.",
-        "linkedin": "#"
+        "name": "Lakshminarayanan Ganesan",
+        "role": "Lead SDET",
+        "company": "Freshworks",
+        "photo": "https://ui-avatars.com/api/?name=Lakshminarayanan+Ganesan&background=2563eb&color=fff&size=80",
+        "text": "I had the privilege of working with Natraaj on multiple occasions and collaborative projects and he is undoubtedly one of the most well-rounded professionals I’ve collaborated with. His deep understanding of software development, combined with his strong critical thinking skills, makes him as an invaluable asset. What truly sets him apart is his ability to go above and beyond. His contributions are not limited to quality assurance; he plays a key role in project and people management, driving efficiency, fostering collaboration, and ensuring smooth execution of deliverables. If you're looking for someone who is not just an exceptional engineer but also a problem solver, a leader, and a technical asset to any team, Natraaj is the perfect fit. I highly recommend him!",
+        "linkedin": "https://www.linkedin.com/in/me/details/recommendations/"
     }
 ]

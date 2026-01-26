@@ -5,32 +5,39 @@
     "company": "Cognizant Technology Solutions",
     "duration": "May 2015 – Nov 2019 | Chennai, India",
     "achievements": [
-      "Slashed manual effort by 65% via new automation framework.",
-      "Automated 3 legacy projects, saving 120+ hours per sprint.",
-      "Mentored 10+ engineers to mid-level promotions.",
-      "Boosted scenario validation by 200% using data-driven testing."
+      "Automated 2,184 E2E tests and maintained 4,700+ Selenium test suites across multiple enterprise clients.",
+      "Reduced manual effort by 65% by automating 3 legacy projects.",
+      "Freed 120+ hours/sprint for higher-value work.",
+      "Built domain expertise in Hospitality and Insurance.",
+      "Mentored 10+ engineers and expanded QA practice by driving new client engagements."
     ]
   },
   {
     "year": "2019",
-    "title": "Member of Technical Staff - 2",
-    "company": "Verizon Communications",
-    "duration": "Dec 2019 – Apr 2021 | Chennai, India",
+    "title": "Member of Technical Staff - II",
+    "company": "Verizon Data Services India",
+    "duration": "Dec 2019 – May 2021 | Chennai, India",
     "achievements": [
-      "Accelerated release velocity 3x by halving API testing cycles.",
-      "Optimized 10M+ txn/day platform, improving response time by 35%.",
-      "Reduced defect escape rate by 45% via real-time dashboards."
+      "Led 4-engineer team to automate 1,124 E2E scenarios using Selenium + REST Assured for enterprise telecom.",
+      "Architected Salesforce BDD framework (Cucumber + TestNG) that tripled release velocity via faster API test cycles.",
+      "Improved platform quality handling 10M+ txn/day: 35% quality improvement, 45% fewer escapes.",
+      "Designed and delivered custom tooling that saved $7K and 992 hours across QA teams.",
+      "Owned Jenkins CI/CD pipelines and Salesforce admin to eliminate QA blockers."
     ]
   },
   {
     "year": "2021",
     "title": "Lead SDET",
-    "company": "Share.Market by PhonePe",
+    "company": "Share.Market by PhonePe (PhonePe Wealth Broking)",
     "duration": "May 2021 – Jul 2024 | Bengaluru, India",
     "achievements": [
-      "Built test ecosystem for 5M+ users; achieved zero critical incidents.",
-      "Scaled test coverage 40%→95%, catching 300+ critical defects.",
-      "Slashed regression time by 61%, enabling daily deployments."
+      "Led 3 QA pods (7 engineers) for 5M+ user stock trading platform with zero critical production incidents over 3 years.",
+      "Scaled test coverage from 40% to 95%, catching 300+ critical defects pre-production.",
+      "Reduced regression time by 61% (hours to minutes) enabling daily releases.",
+      "Owned performance testing for 17 microservices + 4 web apps.",
+      "Architected self-healing TDD framework with automatic recovery for flaky tests.",
+      "Designed and shipped 3 internal tools (JIRA Creayzer, GSheet Manager, Self Tester) to increase QA productivity.",
+      "Pioneered Playwright migration for modern E2E testing."
     ]
   },
   {
@@ -39,9 +46,13 @@
     "company": "Kotak Mahindra Bank",
     "duration": "Jul 2024 – Present | Bengaluru, India",
     "achievements": [
-      "Leading QE for 40M+ user platform, ensuring 99.99% uptime.",
-      "Deployed AI test generation, cutting manual effort by 45%.",
-      "Architected cloud test infra, cutting costs by 40%."
+      "Building QA org from scratch for ₹500Cr, 40M+ user platform (strategy, hiring, tooling).",
+      "Shipped 3 enterprise projects with zero production defects.",
+      "Achieving 3× faster releases via enterprise-wide automation framework.",
+      "Leading 8-member team delivering at zero-defect quality.",
+      "Built 8 internal QA tools (2 AI-powered) reducing test design effort by 45% and maintenance by 60%.",
+      "Architected AWS-native test infrastructure: 500+ parallel suites, 99.9% reliability, 40% cost reduction.",
+      "Leading shift-left CoE that reduced post-production defects by 70%."
     ]
   }
 ]

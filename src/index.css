@@ -255,6 +255,36 @@ body {
   margin: 0 auto 3rem;
 }
 
+/* Pillar Badges */
+.pillar-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 2rem auto 2.5rem;
+  max-width: 900px;
+}
+
+.pillar {
+  padding: 0.625rem 1.25rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  letter-spacing: 0.01em;
+}
+
+.pillar:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
 .hero-cta {
   display: flex;
   gap: 1.5rem;
@@ -304,7 +334,7 @@ body {
 
 /* Section Styling */
 .section {
-  padding: 5rem 0;
+  padding: 6rem 0;
   position: relative;
 }
 
@@ -393,6 +423,38 @@ body {
 
 .about-content p {
   margin-bottom: 1.5rem;
+}
+
+/* Skills Focus Note */
+.skills-focus-note {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-50);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--primary);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* SDET Architect Note */
+.sdet-architect-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 1rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--gray-50);
+  border-radius: var(--border-radius);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Impact Section */
@@ -741,6 +803,102 @@ body {
   color: var(--gray-600);
   margin-bottom: 1.5rem;
   line-height: 1.6;
+}
+
+/* Project Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  padding: 0.35rem 0.85rem;
+  border-radius: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.tag-open-source {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.tag-ai-assisted {
+  background: #fce7f3;
+  color: #9d174d;
+  border: 1px solid #f9a8d4;
+}
+
+.tag-internal-tooling {
+  background: #e0e7ff;
+  color: #3730a3;
+  border: 1px solid #a5b4fc;
+}
+
+.tag-productivity {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.tag-cicd-native {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+.tag-real-time-dashboards {
+  background: #fce7f3;
+  color: #831843;
+  border: 1px solid #f9a8d4;
+}
+
+.tag-enterprise-grade {
+  background: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #d8b4fe;
+}
+
+.tag-design-patterns {
+  background: #e0f2fe;
+  color: #075985;
+  border: 1px solid #7dd3fc;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Project Metrics */
+.project-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.metric-chip {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.15));
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.metric-chip:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.2));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .project-tech-stack {

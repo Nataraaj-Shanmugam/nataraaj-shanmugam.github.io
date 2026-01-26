@@ -1,7 +1,7 @@
 [
   {
-    "Skill Category": "Test Automation",
-    "Skill Description": "End-to-end automation frameworks & tools",
+    "Skill Category": "Core Automation Stack",
+    "Skill Description": "Primary frameworks & tools that define my expertise",
     "Skills": [
       {
         "name": "Selenium WebDriver",
@@ -10,28 +10,16 @@
         "score": "9"
       },
       {
-        "name": "TestNG & JUnit",
+        "name": "TestNG",
         "icon": "fas fa-flask",
         "link": "https://testng.org/",
         "score": "9"
-      },
-      {
-        "name": "Playwright",
-        "icon": "fas fa-theater-masks",
-        "link": "https://playwright.dev/",
-        "score": "8"
       },
       {
         "name": "Cucumber BDD",
         "icon": "fas fa-leaf",
         "link": "https://cucumber.io/",
         "score": "9"
-      },
-      {
-        "name": "Appium",
-        "icon": "fas fa-mobile-alt",
-        "link": "https://appium.io/",
-        "score": "7"
       },
       {
         "name": "Rest Assured",
@@ -42,11 +30,11 @@
     ]
   },
   {
-    "Skill Category": "Programming",
-    "Skill Description": "Core development languages & scripting",
+    "Skill Category": "Languages",
+    "Skill Description": "Programming & scripting languages",
     "Skills": [
       {
-        "name": "Java",
+        "name": "Java (Expert)",
         "icon": "fab fa-java",
         "link": "https://docs.oracle.com/en/java/",
         "score": "9"
@@ -72,8 +60,44 @@
     ]
   },
   {
-    "Skill Category": "Performance Testing",
-    "Skill Description": "Load, stress & performance optimization",
+    "Skill Category": "DevOps & Cloud",
+    "Skill Description": "Designed CI/CD-integrated QA solutions using Docker, Jenkins, GitHub Actions, AWS, and Azure DevOps for 20+ services and applications",
+    "Skills": [
+      {
+        "name": "Docker",
+        "icon": "fab fa-docker",
+        "link": "https://docs.docker.com/",
+        "score": "8"
+      },
+      {
+        "name": "Jenkins",
+        "icon": "fab fa-jenkins",
+        "link": "https://www.jenkins.io/doc/",
+        "score": "9"
+      },
+      {
+        "name": "AWS",
+        "icon": "fab fa-aws",
+        "link": "https://docs.aws.amazon.com/",
+        "score": "7"
+      },
+      {
+        "name": "GitHub Actions",
+        "icon": "fab fa-github",
+        "link": "https://docs.github.com/en/actions",
+        "score": "7"
+      },
+      {
+        "name": "Azure DevOps",
+        "icon": "fab fa-microsoft",
+        "link": "https://docs.microsoft.com/en-us/azure/devops/",
+        "score": "7"
+      }
+    ]
+  },
+  {
+    "Skill Category": "Performance & Reliability",
+    "Skill Description": "Load testing, performance optimization & monitoring",
     "Skills": [
       {
         "name": "JMeter",
@@ -102,43 +126,19 @@
     ]
   },
   {
-    "Skill Category": "DevOps & CI/CD",
-    "Skill Description": "Pipeline automation & deployment",
+    "Skill Category": "Supporting Tools",
+    "Skill Description": "Additional frameworks & technologies",
     "Skills": [
       {
-        "name": "Docker",
-        "icon": "fab fa-docker",
-        "link": "https://docs.docker.com/",
-        "score": "8"
+        "name": "Playwright",
+        "icon": "fas fa-theater-masks",
+        "link": "https://playwright.dev/",
+        "score": "6"
       },
       {
-        "name": "Jenkins",
-        "icon": "fab fa-jenkins",
-        "link": "https://www.jenkins.io/doc/",
-        "score": "9"
-      },
-      {
-        "name": "GitHub Actions",
-        "icon": "fab fa-github",
-        "link": "https://docs.github.com/en/actions",
-        "score": "7"
-      },
-      {
-        "name": "Azure DevOps",
-        "icon": "fab fa-microsoft",
-        "link": "https://docs.microsoft.com/en-us/azure/devops/",
-        "score": "7"
-      }
-    ]
-  },
-  {
-    "Skill Category": "Cloud & Database",
-    "Skill Description": "Cloud platforms & data management",
-    "Skills": [
-      {
-        "name": "AWS",
-        "icon": "fab fa-aws",
-        "link": "https://docs.aws.amazon.com/",
+        "name": "Appium",
+        "icon": "fas fa-mobile-alt",
+        "link": "https://appium.io/",
         "score": "7"
       },
       {

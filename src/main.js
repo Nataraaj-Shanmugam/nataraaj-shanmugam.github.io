@@ -161,14 +161,29 @@ fetch('data/projects.json')
                         <h3 class="project-title">${project.title}</h3>
                     </div>
                     <div class="project-content">
+                        ${project.tags ? `
+                        <div class="project-tags">
+                            ${project.tags.map(tag => {
+                const tagClass = tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                return `<span class="tag tag-${tagClass}">${tag}</span>`;
+            }).join('')}
+                        </div>
+                        ` : ''}
+                        
                         <p class="project-description">${project.description}</p>
+                        
+                        ${project.metrics ? `
+                        <div class="project-metrics">
+                            ${project.metrics.map(metric => `<span class="metric-chip">${metric}</span>`).join('')}
+                        </div>
+                        ` : ''}
                         <div class="project-tech-stack">
                             ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                         </div>
                         
                         ${project.caseStudy ? `
                         <div class="case-study">
-                            <h4 class="case-study-title"><i class="fas fa-lightbulb"></i> Case Study</h4>
+                            <h4 class="case-study-title">Case Study</h4>
                             <div class="case-study-section">
                                 <strong>Problem:</strong>
                                 <p>${project.caseStudy.problem}</p>
