@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="../public/logo.png" />
-    <title>Technical Insights & Learning | Nataraaj Shanmugam</title>
+    <title>All Projects | Nataraaj Shanmugam</title>
     <meta name="description"
-        content="Technical insights by Nataraaj Shanmugam — LeetCode solutions, data structures, algorithms, and Java deep dives." />
+        content="Open-source test automation frameworks and developer tools by Nataraaj Shanmugam — API code generators, cURL converters, BDD frameworks, and enterprise TDD solutions." />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body class="insights-page-body">
+<body>
     <div class="nav-overlay" id="navOverlay"></div>
 
     <nav class="navbar scrolled" id="navbar">
@@ -23,10 +23,10 @@
             <a href="../index.html" class="nav-logo"><img src="../public/logo.png" alt="Nataraaj Shanmugam"></a>
             <div class="nav-links" id="navMenu">
                 <a href="../index.html#experience" class="nav-link">Experience</a>
-                <a href="../index.html#projects" class="nav-link">Projects</a>
+                <a href="../index.html#projects" class="nav-link active">Projects</a>
                 <a href="../index.html#skills" class="nav-link">Skills</a>
                 <a href="../index.html#testimonials" class="nav-link">Testimonials</a>
-                <a href="../index.html#insights" class="nav-link active">Insights</a>
+                <a href="../index.html#insights" class="nav-link">Insights</a>
             </div>
             <a href="../Nataraaj_Shanmugam_Resume.pdf" class="nav-resume" download>
                 <i class="fas fa-download"></i> Resume
@@ -43,12 +43,24 @@
                 <a href="../index.html" class="page-back">
                     <i class="fas fa-arrow-left"></i> Back to Portfolio
                 </a>
-                <h1 class="page-title">Technical Insights</h1>
-                <p class="page-subtitle">LeetCode solutions, data structures, algorithms, Java deep dives, and more</p>
+                <h1 class="page-title">All Projects</h1>
+                <p class="page-subtitle">Open-source tools and automation frameworks with real-world impact across enterprise teams</p>
             </div>
         </div>
 
-        <div class="accordion-wrapper" id="accordionContainer"></div>
+        <section class="section">
+            <div class="container">
+                <div class="projects-grid" id="projectsGrid">
+                    <div class="loading-skeleton">
+                        <div class="skeleton-grid">
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">

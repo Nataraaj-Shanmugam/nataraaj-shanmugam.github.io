@@ -1,40 +1,6 @@
 [
     {
-        "icon": "fas fa-exchange-alt",
-        "title": "cURL to Code Converter",
-        "description": "Turn any cURL command into production-ready test code in seconds — not hours.",
-        "techStack": [
-            "Java",
-            "REST Assured",
-            "HTTP",
-            "Code Generation"
-        ],
-        "tags": [
-            "Internal Tooling",
-            "Productivity"
-        ],
-        "metrics": [
-            "50+ Developers Using",
-            "70% Faster"
-        ],
-        "caseStudy": {
-            "problem": "API testers spent 2-3 hours/day manually converting cURL to code.",
-            "solution": "Intelligent parser auto-generates code in 5+ languages with error handling baked in.",
-            "results": [
-                "70% faster test creation",
-                "40% faster onboarding for new team members",
-                "Adopted by 50+ developers across organization",
-                "Standardized code quality across team"
-            ]
-        },
-        "highlights": [
-            "Supports 5+ programming languages",
-            "70% faster API test creation",
-            "Zero-config setup"
-        ],
-        "github": "https://github.com/Nataraaj-Shanmugam/cURL-to-Code-convertor"
-    },
-    {
+        "priority": 1,
         "icon": "fas fa-magic",
         "title": "API Automation Code Generator",
         "description": "Auto-generate 95%-coverage API test suites from OpenAPI specs — in hours, not weeks.",
@@ -70,6 +36,43 @@
         "github": "https://github.com/Nataraaj-Shanmugam/API_Framework_With_CodeGenerator"
     },
     {
+        "priority": 2,
+        "icon": "fas fa-exchange-alt",
+        "title": "cURL to Code Converter",
+        "description": "Turn any cURL command into production-ready test code in seconds — not hours.",
+        "techStack": [
+            "Java",
+            "REST Assured",
+            "HTTP",
+            "Code Generation"
+        ],
+        "tags": [
+            "Internal Tooling",
+            "Productivity"
+        ],
+        "metrics": [
+            "50+ Developers Using",
+            "70% Faster"
+        ],
+        "caseStudy": {
+            "problem": "API testers spent 2-3 hours/day manually converting cURL to code.",
+            "solution": "Intelligent parser auto-generates code in 5+ languages with error handling baked in.",
+            "results": [
+                "70% faster test creation",
+                "40% faster onboarding for new team members",
+                "Adopted by 50+ developers across organization",
+                "Standardized code quality across team"
+            ]
+        },
+        "highlights": [
+            "Supports 5+ programming languages",
+            "70% faster API test creation",
+            "Zero-config setup"
+        ],
+        "github": "https://github.com/Nataraaj-Shanmugam/cURL-to-Code-convertor"
+    },
+    {
+        "priority": 3,
         "icon": "fas fa-sitemap",
         "title": "BDD Framework with CI/CD",
         "description": "Zero-touch test execution and real-time quality dashboards for stakeholders.",
@@ -106,6 +109,7 @@
         "demo": "https://nataraaj-shanmugam.github.io/BDD-framework-with-NBA-Project/project-info.html"
     },
     {
+        "priority": 4,
         "icon": "fas fa-flask",
         "title": "Enterprise TDD Framework",
         "description": "Battle-tested framework with 95% test stability — adopted across 5 product teams.",
