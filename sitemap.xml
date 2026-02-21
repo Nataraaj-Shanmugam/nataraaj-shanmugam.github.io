@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://yourwebsite.com/</loc>
-        <lastmod>2025-01-18</lastmod>
+        <loc>https://nataraaj-shanmugam.github.io/</loc>
+        <lastmod>2026-02-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://yourwebsite.com/insights.html</loc>
-        <lastmod>2025-01-18</lastmod>
+        <loc>https://nataraaj-shanmugam.github.io/src/insights.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://nataraaj-shanmugam.github.io/src/projects.html</loc>
+        <lastmod>2026-02-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -3,16 +3,30 @@
         "name": "HariVenkata Lakshmi Kumar Mynampati",
         "role": "Manager",
         "company": "Verizon",
-        "photo": "https://ui-avatars.com/api/?name=HariVenkata+Lakshmi+Kumar+Mynampati&background=2563eb&color=fff&size=80",
+        "photo": "https://ui-avatars.com/api/?name=HariVenkata+Lakshmi+Kumar+Mynampati&background=2B52B4&color=fff&size=80",
         "text": "Nataraj is a highly proactive and dedicated Test Automation Engineer with a deep understanding of the full testing lifecycle. During our time together, I was consistently impressed by his mastery of the Java-Selenium-Cucumber stack. He played a pivotal role in our BDD framework, ensuring our regression and functional testing suites were both robust and scalable. His ability to dive deep into complex API testing scenarios and deliver clean, efficient code is what sets him apart. I highly recommend him for any senior automation role.",
-        "linkedin": "https://www.linkedin.com/in/me/details/recommendations/"
+        "rating": 5,
+        "linkedin": "https://www.linkedin.com/in/me/details/recommendations/",
+        "showOnHome": true
     },
     {
         "name": "Lakshminarayanan Ganesan",
         "role": "Lead SDET",
         "company": "Freshworks",
-        "photo": "https://ui-avatars.com/api/?name=Lakshminarayanan+Ganesan&background=2563eb&color=fff&size=80",
-        "text": "I had the privilege of working with Natraaj on multiple occasions and collaborative projects and he is undoubtedly one of the most well-rounded professionals I’ve collaborated with. His deep understanding of software development, combined with his strong critical thinking skills, makes him as an invaluable asset. What truly sets him apart is his ability to go above and beyond. His contributions are not limited to quality assurance; he plays a key role in project and people management, driving efficiency, fostering collaboration, and ensuring smooth execution of deliverables. If you're looking for someone who is not just an exceptional engineer but also a problem solver, a leader, and a technical asset to any team, Natraaj is the perfect fit. I highly recommend him!",
-        "linkedin": "https://www.linkedin.com/in/me/details/recommendations/"
+        "photo": "https://ui-avatars.com/api/?name=Lakshminarayanan+Ganesan&background=2B52B4&color=fff&size=80",
+        "text": "I had the privilege of working with Natraaj on multiple occasions and collaborative projects and he is undoubtedly one of the most well-rounded professionals I've collaborated with. His deep understanding of software development, combined with his strong critical thinking skills, makes him as an invaluable asset. What truly sets him apart is his ability to go above and beyond. His contributions are not limited to quality assurance; he plays a key role in project and people management, driving efficiency, fostering collaboration, and ensuring smooth execution of deliverables. If you're looking for someone who is not just an exceptional engineer but also a problem solver, a leader, and a technical asset to any team, Natraaj is the perfect fit. I highly recommend him!",
+        "rating": 5,
+        "linkedin": "https://www.linkedin.com/in/me/details/recommendations/",
+        "showOnHome": true
+    },
+    {
+        "name": "Praveen Krishnamoorthy",
+        "role": "Engineering Manager",
+        "company": "HighLevel",
+        "photo": "https://ui-avatars.com/api/?name=Praveen+Krishnamoorthy&background=2B52B4&color=fff&size=80",
+        "text": "I’ve had the opportunity to learn under Nataraaj Shanmugam during my preparation in DSA and my journey as an SDET, and his guidance played a significant role in shaping the way I approach problem-solving and engineering today. <br> Nataraaj has a unique ability to break down complex concepts into clear, actionable thinking. Whether it was DSA fundamentals, approaching edge cases, or thinking through problems systematically, his explanations always brought clarity and confidence. He doesn’t just provide answers — he teaches how to think. What I value most is his mentorship style. He’s patient, approachable, and genuinely invested in helping others grow. He took the time to understand where I was, identified gaps in my understanding, and guided me through them with practical examples and structured reasoning. Beyond technical skills, Nataraaj influenced how I think as an engineer — emphasizing clean design, scalability, and long-term maintainability. His guidance helped me build a stronger foundation, not just for interviews or preparation, but for real-world SDET work. Nataraaj is someone who leaves a lasting impact on the people he mentors. Any team or organization would be fortunate to have someone who combines deep technical knowledge with a genuine passion for teaching and uplifting others.",
+        "rating": 5,
+        "linkedin": "https://www.linkedin.com/in/me/details/recommendations/",
+        "showOnHome": true
     }
 ]

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="../public/logo.png" />
+    <title>Projects & Case Studies | Nataraaj Shanmugam</title>
+    <meta name="description" content="Full case studies for Nataraaj Shanmugam's open-source QA automation tools — problems solved, solutions built, results delivered." />
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: var(--gray-50);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-optical-sizing: auto;
+        }
+
+        /* Page header */
+        .projects-page-hero {
+            background: var(--gradient-tech);
+            padding: 5rem 0 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-page-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
+        }
+
+        .projects-page-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .projects-page-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+        }
+
+        .projects-page-hero p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            color: white !important;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--border-radius-lg);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            backdrop-filter: blur(10px);
+            font-family: var(--font-sans);
+            letter-spacing: 0.02em;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.35);
+            transform: translateY(-2px);
+        }
+
+        .back-btn i {
+            transition: transform 0.25s ease;
+        }
+
+        .back-btn:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* Full project cards — CSS Grid for equal-height rows */
+        .projects-full-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 5rem;
+        }
+
+        .project-full-card {
+            background: white;
+            border-radius: var(--border-radius-2xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+            transition: box-shadow 0.35s ease, transform 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-full-card:hover {
+            box-shadow: var(--shadow-2xl);
+            transform: translateY(-4px);
+        }
+
+        .project-full-header {
+            background: var(--gradient-tech);
+            padding: 2rem 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-full-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+            pointer-events: none;
+        }
+
+        .project-full-icon {
+            font-size: 2.25rem;
+            color: white;
+            opacity: 0.9;
+            flex-shrink: 0;
+        }
+
+        .project-full-header-text {
+            flex: 1;
+        }
+
+        .project-full-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-full-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-full-body {
+            padding: 2rem 2.5rem 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-full-desc {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-full-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-full-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Case study block */
+        .case-study-full {
+            background: var(--primary-50);
+            border-radius: var(--border-radius-xl);
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        .case-study-full-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-sans);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .case-study-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-block strong {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+            font-family: var(--font-sans);
+        }
+
+        .case-study-block p {
+            font-size: 0.92rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        .case-study-results-grid {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.625rem;
+        }
+
+        .case-study-results-grid li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .case-study-results-grid li i {
+            color: var(--success);
+            margin-top: 0.15em;
+            flex-shrink: 0;
+        }
+
+        /* Highlights */
+        .project-highlights-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .highlight-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.875rem;
+            background: var(--gray-100);
+            border-radius: 99px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--gray-700);
+            font-family: var(--font-sans);
+        }
+
+        .highlight-pill i {
+            color: var(--success);
+            font-size: 0.75rem;
+        }
+
+        /* Footer links */
+        .project-full-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--gray-200);
+            margin-top: auto;
+        }
+
+        .project-full-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--border-radius-lg);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-family: var(--font-sans);
+        }
+
+        .project-full-link-primary {
+            background: var(--gradient-tech);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-full-link-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-blue);
+        }
+
+        .project-full-link-secondary {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-200);
+        }
+
+        .project-full-link-secondary:hover {
+            background: var(--gray-200);
+            transform: translateY(-2px);
+        }
+
+        /* Floating back button */
+        .back-btn-float {
+            position: fixed;
+            top: 1.25rem;
+            left: 1.25rem;
+            z-index: 999;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-900);
+            color: white !important;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--border-radius-lg);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+            font-family: var(--font-sans);
+        }
+
+        .back-btn-float.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-btn-float:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .back-btn-float i {
+            transition: transform 0.25s ease;
+        }
+
+        .back-btn-float:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* Loading / error */
+        .projects-loading {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--gray-500);
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .projects-full-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .projects-full-grid {
+                padding: 2rem 1rem 4rem;
+            }
+
+            .project-full-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .project-full-body {
+                padding: 1.5rem;
+            }
+
+            .case-study-row,
+            .case-study-results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-full {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="projects-page-hero">
+        <div class="container">
+            <a href="../index.html#projects" class="back-btn" id="backBtnStatic">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <h1 style="margin-top: 2rem;">Projects & Case Studies</h1>
+            <p>Open-source tools built to solve real engineering problems — with measurable results.</p>
+        </div>
+    </div>
+
+    <div id="projectsContainer">
+        <div class="projects-loading">
+            <i class="fas fa-spinner fa-spin" style="font-size:1.5rem; color: var(--primary); margin-bottom: 1rem; display: block;"></i>
+            Loading projects...
+        </div>
+    </div>
+
+    <a href="../index.html#projects" class="back-btn-float" id="backBtnFloat">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <script>
+        // Floating back button visibility
+        const staticBtn = document.getElementById('backBtnStatic');
+        const floatBtn = document.getElementById('backBtnFloat');
+        const observer = new IntersectionObserver(([entry]) => {
+            floatBtn.classList.toggle('visible', !entry.isIntersecting);
+        }, { threshold: 0 });
+        observer.observe(staticBtn);
+
+        fetch('../data/projects.json')
+            .then(r => r.json())
+            .then(projects => {
+                const container = document.getElementById('projectsContainer');
+
+                const cardsHTML = projects.map(project => {
+                    const tagsHTML = project.tags
+                        ? project.tags.map(tag => {
+                            const cls = tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                            return `<span class="tag tag-${cls}">${tag}</span>`;
+                        }).join('')
+                        : '';
+
+                    const metricsHTML = project.metrics
+                        ? project.metrics.map(m => `<span class="metric-chip">${m}</span>`).join('')
+                        : '';
+
+                    const techHTML = project.techStack
+                        .map(t => `<span class="tech-tag">${t}</span>`).join('');
+
+                    const caseStudyHTML = project.caseStudy ? `
+                        <div class="case-study-full">
+                            <div class="case-study-full-title">
+                                <i class="fas fa-microscope"></i> Case Study
+                            </div>
+                            <div class="case-study-row">
+                                <div class="case-study-block">
+                                    <strong>Problem</strong>
+                                    <p>${project.caseStudy.problem}</p>
+                                </div>
+                                <div class="case-study-block">
+                                    <strong>Solution</strong>
+                                    <p>${project.caseStudy.solution}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <strong style="display:block; font-size:0.75rem; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem; font-family:var(--font-sans);">Results</strong>
+                                <ul class="case-study-results-grid">
+                                    ${project.caseStudy.results.map(r => `
+                                        <li><i class="fas fa-check-circle"></i> ${r}</li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>` : '';
+
+                    const highlightsHTML = project.highlights ? `
+                        <div class="project-highlights-row">
+                            ${project.highlights.map(h => `
+                                <span class="highlight-pill">
+                                    <i class="fas fa-check-circle"></i> ${h}
+                                </span>`).join('')}
+                        </div>` : '';
+
+                    const linksHTML = `
+                        <div class="project-full-links">
+                            <a href="${project.github}" class="project-full-link project-full-link-primary" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                            ${project.demo ? `
+                            <a href="${project.demo}" class="project-full-link project-full-link-secondary" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>` : ''}
+                        </div>`;
+
+                    return `
+                        <div class="project-full-card">
+                            <div class="project-full-header">
+                                <div class="project-full-icon"><i class="${project.icon}"></i></div>
+                                <div class="project-full-header-text">
+                                    <h2 class="project-full-title">${project.title}</h2>
+                                    <div class="project-full-tags">${tagsHTML}</div>
+                                </div>
+                            </div>
+                            <div class="project-full-body">
+                                <p class="project-full-desc">${project.description}</p>
+                                ${metricsHTML ? `<div class="project-full-metrics">${metricsHTML}</div>` : ''}
+                                <div class="project-full-tech">${techHTML}</div>
+                                ${caseStudyHTML}
+                                ${highlightsHTML}
+                                ${linksHTML}
+                            </div>
+                        </div>`;
+                }).join('');
+
+                container.innerHTML = `<div class="projects-full-grid">${cardsHTML}</div>`;
+            })
+            .catch(err => {
+                document.getElementById('projectsContainer').innerHTML = `
+                    <div class="projects-loading" style="color: var(--danger);">
+                        <i class="fas fa-exclamation-triangle" style="font-size:1.5rem; display:block; margin-bottom:1rem;"></i>
+                        Failed to load projects. Please try again.
+                    </div>`;
+                console.error('Error loading projects:', err);
+            });
+    </script>
+</body>
+</html>

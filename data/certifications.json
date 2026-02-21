@@ -4,23 +4,23 @@
         "issuer": "Amazon Web Services",
         "icon": "fab fa-aws",
         "year": "2023",
-        "link": "#",
-        "description": "Cloud infrastructure and services"
+        "description": "Cloud infrastructure and services",
+        "showOnHome": true
     },
     {
         "name": "ISTQB Certified Tester",
         "issuer": "International Software Testing Qualifications Board",
         "icon": "fas fa-certificate",
         "year": "2018",
-        "link": "#",
-        "description": "Foundation level testing principles"
+        "description": "Foundation level testing principles",
+        "showOnHome": true
     },
     {
         "name": "Docker Certified Associate",
         "issuer": "Docker Inc.",
         "icon": "fab fa-docker",
         "year": "2022",
-        "link": "#",
-        "description": "Containerization and orchestration"
+        "description": "Containerization and orchestration",
+        "showOnHome": true
     }
 ]

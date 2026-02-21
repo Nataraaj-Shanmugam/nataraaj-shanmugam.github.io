@@ -4,16 +4,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="icon" type="image/png" href="../public/logo.png" />
     <title>Technical Insights & Learning | Nataraaj Shanmugam</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
         body {
             background: var(--gray-50);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-optical-sizing: auto;
         }
 
         .back-nav {
@@ -50,6 +58,50 @@
         }
 
         .back-btn:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* Floating back button */
+        .back-btn-float {
+            position: fixed;
+            top: 1.25rem;
+            left: 1.25rem;
+            z-index: 999;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-900);
+            color: white !important;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--border-radius-lg);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+            font-family: var(--font-sans);
+        }
+
+        .back-btn-float.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-btn-float:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .back-btn-float i {
+            transition: transform 0.25s ease;
+        }
+
+        .back-btn-float:hover i {
             transform: translateX(-3px);
         }
 
@@ -144,10 +196,14 @@
 
 <body>
     <div class="back-nav">
-        <a href="../index.html" class="back-btn">
+        <a href="../index.html#learning" class="back-btn" id="backBtnStatic">
             <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
     </div>
+
+    <a href="../index.html#learning" class="back-btn-float" id="backBtnFloat">
+        <i class="fas fa-arrow-left"></i> Back to Insights
+    </a>
 
     <div class="container section" style="margin-top:2rem;">
         <h1 class="section-title" style="text-align:center;">Technical Insights & Learning</h1>
@@ -158,29 +214,13 @@
     </div>
 
     <script>
-        // Meta info for each section
-        // const insightsMeta = {
-        //     leetcode: {
-        //         icon: 'fas fa-calculator',
-        //         title: 'LeetCode Visualizations',
-        //         desc: 'Step-by-step video breakdowns and visuals for trending LeetCode problems, explained in crisp English.',
-        //     },
-        //     datastructures: {
-        //         icon: 'fas fa-code-branch',
-        //         title: 'Data Structures',
-        //         desc: 'Practical guides and advanced usage of core data structures for real-world automation and development.',
-        //     },
-        //     algorithms: {
-        //         icon: 'fas fa-puzzle-piece',
-        //         title: 'Algorithm Techniques',
-        //         desc: 'Deep dives into core algorithmic strategies for technical interviews and high-performance automation.',
-        //     },
-        //     java: {
-        //         icon: 'fab fa-java',
-        //         title: 'Java Nuance',
-        //         desc: 'Advanced guides on JVM, Java OOP, and modern features for building robust test frameworks.',
-        //     }
-        // };
+        // Floating back button visibility
+        const staticBtn = document.getElementById('backBtnStatic');
+        const floatBtn = document.getElementById('backBtnFloat');
+        const btnObserver = new IntersectionObserver(([entry]) => {
+            floatBtn.classList.toggle('visible', !entry.isIntersecting);
+        }, { threshold: 0 });
+        btnObserver.observe(staticBtn);
 
         Promise.all([
             fetch('../data/insights.json').then(r => r.json()),
@@ -239,19 +279,14 @@
                     });
                 }
 
-                // Load insights data
-                fetch('../data/insights.json')
-                    .then(r => r.json())
-                    .then(insightsData => {
-                        const openSection = getSectionFromURL() || Object.keys(insightsMeta)[0];
-                        renderAccordion(insightsData, openSection);
-                    })
-                    .catch(err => {
-                        document.getElementById('accordionContainer').innerHTML =
-                            '<div style="color:var(--danger);text-align:center;padding:3rem;">Failed to load insights. Please try again.</div>';
-                        console.error('Error loading insights.json:', err);
-                    });
+                const openSection = getSectionFromURL() || Object.keys(insightsMeta)[0];
+                renderAccordion(insightsData, openSection);
             })
+            .catch(err => {
+                document.getElementById('accordionContainer').innerHTML =
+                    '<div style="color:var(--danger);text-align:center;padding:3rem;">Failed to load insights. Please try again.</div>';
+                console.error('Error loading insights:', err);
+            });
     </script>
 </body>
 </html>

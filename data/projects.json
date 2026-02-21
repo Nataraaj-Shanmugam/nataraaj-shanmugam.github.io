@@ -3,6 +3,7 @@
         "icon": "fas fa-exchange-alt",
         "title": "cURL to Code Converter",
         "description": "Turn any cURL command into production-ready test code in seconds — not hours.",
+        "showOnHome": true,
         "techStack": [
             "Java",
             "REST Assured",
@@ -38,6 +39,7 @@
         "icon": "fas fa-magic",
         "title": "API Automation Code Generator",
         "description": "Auto-generate 95%-coverage API test suites from OpenAPI specs — in hours, not weeks.",
+        "showOnHome": true,
         "techStack": [
             "Java",
             "OpenAPI",
@@ -73,6 +75,7 @@
         "icon": "fas fa-sitemap",
         "title": "BDD Framework with CI/CD",
         "description": "Zero-touch test execution and real-time quality dashboards for stakeholders.",
+        "showOnHome": false,
         "techStack": [
             "Cucumber",
             "Selenium",
@@ -109,6 +112,7 @@
         "icon": "fas fa-flask",
         "title": "Enterprise TDD Framework",
         "description": "Battle-tested framework with 95% test stability — adopted across 5 product teams.",
+        "showOnHome": true,
         "techStack": [
             "Java",
             "Selenium",
