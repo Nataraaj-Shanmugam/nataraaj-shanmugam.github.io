@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="index.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
         body {
@@ -63,7 +63,7 @@
             margin-bottom: 2rem;
         }
 
-        /* Back button */
+        /* Back button in hero */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -72,15 +72,15 @@
             color: white !important;
             border: 1px solid rgba(255,255,255,0.2);
             padding: 0.6rem 1.25rem;
-            border-radius: var(--border-radius-lg);
-            font-size: 0.88rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.25s ease;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
             backdrop-filter: blur(10px);
             font-family: var(--font-sans);
             letter-spacing: 0.02em;
+            margin-bottom: 2rem;
         }
 
         .back-btn:hover {
@@ -89,12 +89,72 @@
             transform: translateY(-2px);
         }
 
+        .back-btn:hover i {
+            transform: translateX(-3px);
+        }
+
         .back-btn i {
             transition: transform 0.25s ease;
         }
 
-        .back-btn:hover i {
+        /* Floating back button — appears when hero scrolls out */
+        .back-btn-float {
+            position: fixed;
+            top: 1.25rem;
+            left: 1.25rem;
+            z-index: 999;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--navy);
+            color: white !important;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.6rem 1.25rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            font-family: var(--font-sans);
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 20px rgba(27,43,75,0.28);
+            opacity: 0;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+        }
+
+        .back-btn-float.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-btn-float:hover {
+            background: var(--navy-mid);
+            transform: translateY(-2px);
+        }
+
+        .back-btn-float i {
+            transition: transform 0.25s ease;
+        }
+
+        .back-btn-float:hover i {
             transform: translateX(-3px);
+        }
+
+        /* Project tag chips */
+        .proj-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.28rem 0.7rem;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            letter-spacing: 0.02em;
         }
 
         /* Full project cards — CSS Grid for equal-height rows */
@@ -338,50 +398,6 @@
             transform: translateY(-2px);
         }
 
-        /* Floating back button */
-        .back-btn-float {
-            position: fixed;
-            top: 1.25rem;
-            left: 1.25rem;
-            z-index: 999;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gray-900);
-            color: white !important;
-            padding: 0.6rem 1.25rem;
-            border-radius: var(--border-radius-lg);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
-            font-family: var(--font-sans);
-        }
-
-        .back-btn-float.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .back-btn-float:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .back-btn-float i {
-            transition: transform 0.25s ease;
-        }
-
-        .back-btn-float:hover i {
-            transform: translateX(-3px);
-        }
-
         /* Loading / error */
         .projects-loading {
             text-align: center;
@@ -429,13 +445,17 @@
 
     <div class="projects-page-hero">
         <div class="container">
-            <a href="../index.html#projects" class="back-btn" id="backBtnStatic">
+            <a href="../index.html#projects" class="back-btn">
                 <i class="fas fa-arrow-left"></i> Back to Portfolio
             </a>
-            <h1 style="margin-top: 2rem;">Projects & Case Studies</h1>
+            <h1>Projects & Case Studies</h1>
             <p>Open-source tools built to solve real engineering problems — with measurable results.</p>
         </div>
     </div>
+
+    <a href="../index.html#projects" class="back-btn-float" id="backBtnFloat">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
 
     <div id="projectsContainer">
         <div class="projects-loading">
@@ -444,18 +464,13 @@
         </div>
     </div>
 
-    <a href="../index.html#projects" class="back-btn-float" id="backBtnFloat">
-        <i class="fas fa-arrow-left"></i> Back to Projects
-    </a>
-
     <script>
-        // Floating back button visibility
-        const staticBtn = document.getElementById('backBtnStatic');
+        // Show floating back btn when hero scrolls out of view
+        const hero = document.querySelector('.projects-page-hero');
         const floatBtn = document.getElementById('backBtnFloat');
-        const observer = new IntersectionObserver(([entry]) => {
+        new IntersectionObserver(([entry]) => {
             floatBtn.classList.toggle('visible', !entry.isIntersecting);
-        }, { threshold: 0 });
-        observer.observe(staticBtn);
+        }, { threshold: 0 }).observe(hero);
 
         fetch('../data/projects.json')
             .then(r => r.json())
@@ -464,10 +479,7 @@
 
                 const cardsHTML = projects.map(project => {
                     const tagsHTML = project.tags
-                        ? project.tags.map(tag => {
-                            const cls = tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                            return `<span class="tag tag-${cls}">${tag}</span>`;
-                        }).join('')
+                        ? project.tags.map(tag => `<span class="proj-tag">${tag}</span>`).join('')
                         : '';
 
                     const metricsHTML = project.metrics

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="index.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
         body {
@@ -24,85 +24,41 @@
             font-optical-sizing: auto;
         }
 
+        /* Back button */
         .back-nav {
-            max-width: 800px;
-            margin: 1.5rem auto 0;
-            padding: 0 1rem;
+            max-width: 860px;
+            margin: 2rem auto 0;
+            padding: 0 1.5rem;
         }
 
         .back-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--gray-900);
+            background: var(--navy);
             color: white !important;
             border: none;
-            padding: 0.8rem 1.75rem;
-            border-radius: var(--border-radius-lg);
-            font-size: 1rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
+            transition: background 0.2s ease, transform 0.2s ease;
+            font-family: var(--font-sans);
+            letter-spacing: 0.01em;
         }
 
         .back-btn:hover {
-            background: var(--primary);
+            background: var(--navy-mid);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .back-btn i {
-            transition: transform 0.3s ease;
         }
 
         .back-btn:hover i {
             transform: translateX(-3px);
         }
 
-        /* Floating back button */
-        .back-btn-float {
-            position: fixed;
-            top: 1.25rem;
-            left: 1.25rem;
-            z-index: 999;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gray-900);
-            color: white !important;
-            padding: 0.6rem 1.25rem;
-            border-radius: var(--border-radius-lg);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
-            font-family: var(--font-sans);
-        }
-
-        .back-btn-float.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .back-btn-float:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .back-btn-float i {
+        .back-btn i {
             transition: transform 0.25s ease;
-        }
-
-        .back-btn-float:hover i {
-            transform: translateX(-3px);
         }
 
         .accordion-section {
@@ -186,24 +142,16 @@
             .accordion-content {
                 padding: 1rem 1.25rem;
             }
-
-            .back-nav {
-                padding: 0 1rem;
-            }
         }
     </style>
 </head>
 
 <body>
     <div class="back-nav">
-        <a href="../index.html#learning" class="back-btn" id="backBtnStatic">
+        <a href="../index.html#learning" class="back-btn">
             <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
     </div>
-
-    <a href="../index.html#learning" class="back-btn-float" id="backBtnFloat">
-        <i class="fas fa-arrow-left"></i> Back to Insights
-    </a>
 
     <div class="container section" style="margin-top:2rem;">
         <h1 class="section-title" style="text-align:center;">Technical Insights & Learning</h1>
@@ -214,14 +162,6 @@
     </div>
 
     <script>
-        // Floating back button visibility
-        const staticBtn = document.getElementById('backBtnStatic');
-        const floatBtn = document.getElementById('backBtnFloat');
-        const btnObserver = new IntersectionObserver(([entry]) => {
-            floatBtn.classList.toggle('visible', !entry.isIntersecting);
-        }, { threshold: 0 });
-        btnObserver.observe(staticBtn);
-
         Promise.all([
             fetch('../data/insights.json').then(r => r.json()),
             fetch('../data/insights-meta.json').then(r => r.json())

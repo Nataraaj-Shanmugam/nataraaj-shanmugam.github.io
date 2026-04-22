@@ -1,419 +1,306 @@
 // ─── Utility: hide a section and its nav link ──────────────────────
 function hideSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) section.style.display = 'none';
-    const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-    if (navLink && navLink.parentElement) navLink.parentElement.remove();
+  const section = document.getElementById(sectionId);
+  if (section) section.style.display = 'none';
+  const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+  if (navLink && navLink.parentElement) navLink.parentElement.remove();
 }
 
-// Mobile Navigation Toggle
+// ─── Nav: mobile toggle ────────────────────────────────────────────
+const navbar    = document.getElementById('navbar');
 const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
+const navMenu   = document.getElementById('navMenu');
 
 if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navMenu.classList.remove('active');
     });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
+  });
+  document.addEventListener('click', e => {
+    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+      navToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  });
 }
 
-// Fetch and Render Experience
-fetch('data/experience.json')
-    .then(response => response.json())
-    .then(experienceData => {
-        if (!experienceData || experienceData.length === 0) {
-            hideSection('experience');
-            return;
-        }
-        const homeData = experienceData.filter(exp => exp.showOnHome !== false);
-        const timelineGrid = document.querySelector('.timeline-grid');
-        if (timelineGrid) {
-            timelineGrid.innerHTML = homeData.map((exp, index) => `
-                <div class="timeline-card${index === homeData.length - 1 ? ' current' : ''} timeline-card-hidden timeline-card-transition">
-                    <div class="timeline-year">${exp.year}</div>
-                    <h3 class="job-title">${exp.title}</h3>
-                    <p class="company">${exp.company}</p>
-                    <p class="duration">${exp.duration}</p>
-                    <ul class="timeline-achievements">
-                        ${exp.achievements.slice(0, 3).map(achievement => `<li>${achievement}</li>`).join('')}
-                    </ul>
-                </div>
-            `).join('');
-
-            // Re-apply intersection observer for dynamically loaded cards
-            const timelineCards = document.querySelectorAll('.timeline-card');
-            timelineCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.remove('timeline-card-hidden');
-                    card.classList.add('timeline-card-visible');
-                }, index * 150);
-            });
-        }
-    })
-    .catch(error => console.error('Error loading experience:', error));
-
-// Fetch and Render Certifications
-fetch('data/certifications.json')
-    .then(response => response.json())
-    .then(certificationsData => {
-        if (!certificationsData || certificationsData.length === 0) {
-            hideSection('certifications');
-            return;
-        }
-        const homeCerts = certificationsData.filter(cert => cert.showOnHome !== false);
-        const certificationsGrid = document.getElementById('certificationsGrid');
-        if (certificationsGrid) {
-            certificationsGrid.innerHTML = homeCerts.map(cert => `
-                <div class="certification-card">
-                    <div class="cert-icon"><i class="${cert.icon}"></i></div>
-                    <h3 class="cert-title">${cert.name}</h3>
-                    <p class="cert-issuer">${cert.issuer}</p>
-                    <p class="cert-year">Issued ${cert.year}</p>
-                    ${cert.description ? `<p class="cert-description">${cert.description}</p>` : ''}
-                </div>
-            `).join('');
-        }
-    })
-    .catch(error => {
-        console.error('Error loading certifications:', error);
-        hideSection('certifications');
-    });
-
-// Fetch and Render Testimonials
-fetch('data/Testimonials.json')
-    .then(response => response.json())
-    .then(testimonialsData => {
-        if (!testimonialsData || testimonialsData.length === 0) {
-            hideSection('testimonials');
-            return;
-        }
-        const homeTestimonials = testimonialsData.filter(t => t.showOnHome !== false).slice(0, 3);
-        const testimonialsGrid = document.getElementById('testimonialsGrid');
-        if (testimonialsGrid) {
-            const truncate = (text, max = 500) =>
-                text.length > max ? text.slice(0, max).replace(/\s+\S*$/, '') + '…' : text;
-            testimonialsGrid.innerHTML = homeTestimonials.map(testimonial => `
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="${testimonial.photo}" alt="${testimonial.name}" class="testimonial-photo" />
-                        <div class="testimonial-info">
-                            <h3 class="testimonial-name">${testimonial.name}</h3>
-                            <p class="testimonial-role">${testimonial.role}</p>
-                            <p class="testimonial-company">${testimonial.company}</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"${truncate(testimonial.text)}"</p>
-                    <a href="${testimonial.linkedin}" class="testimonial-link" target="_blank" rel="noopener">
-                        <i class="fab fa-linkedin"></i> View on LinkedIn
-                    </a>
-                </div>
-            `).join('');
-        }
-    })
-    .catch(error => {
-        console.error('Error loading testimonials:', error);
-        hideSection('testimonials');
-    });
-
-// Skills — uniform panels for ALL categories (no featured strip)
-fetch('data/skills.json')
-    .then(res => res.json())
-    .then(skillsData => {
-        if (!skillsData || skillsData.length === 0) {
-            hideSection('skills');
-            return;
-        }
-
-        const container = document.getElementById('skillsContainer');
-        const loading = document.getElementById('skillsLoading');
-        if (loading) loading.remove();
-
-        const categoryIcons = {
-            'Core Automation Stack':    'fas fa-layer-group',
-            'Languages':                'fas fa-code',
-            'DevOps & Cloud':           'fas fa-cloud',
-            'Performance & Reliability':'fas fa-tachometer-alt',
-            'Supporting Tools':         'fas fa-tools'
-        };
-
-        const getLevel = (score) => {
-            const s = parseInt(score);
-            if (s >= 9) return { label: 'Expert',     dots: 5 };
-            if (s >= 7) return { label: 'Advanced',   dots: 4 };
-            if (s >= 6) return { label: 'Proficient', dots: 3 };
-            return              { label: 'Familiar',  dots: 2 };
-        };
-
-        const dots = (n) => Array.from({ length: 5 }, (_, i) =>
-            `<span class="skill-dot${i < n ? ' filled' : ''}"></span>`
-        ).join('');
-
-        // All categories rendered as uniform compact panels
-        const panelsHTML = skillsData.map(cat => {
-            const icon = categoryIcons[cat['Skill Category']] || 'fas fa-circle';
-            const rows = cat.Skills.map(skill => {
-                const level = getLevel(skill.score);
-                return `
-                <a href="${skill.link}" target="_blank" rel="noopener" class="skill-compact-row">
-                    <div class="skill-compact-icon"><i class="${skill.icon}"></i></div>
-                    <span class="skill-compact-name">${skill.name}</span>
-                    <div class="skill-dots">${dots(level.dots)}</div>
-                </a>`;
-            }).join('');
-
-            return `
-            <div class="skill-panel">
-                <div class="skill-panel-header">
-                    <i class="${icon}"></i>
-                    <span>${cat['Skill Category']}</span>
-                </div>
-                ${rows}
-            </div>`;
-        }).join('');
-
-        container.innerHTML = `<div class="skills-uniform-grid">${panelsHTML}</div>`;
-    })
-    .catch(err => {
-        const loading = document.getElementById('skillsLoading');
-        if (loading) loading.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-triangle"></i><br>Failed to load skills. Please refresh.</div>';
-        console.error('Error loading skills.json:', err);
-    });
-
-// Fetch and Render Projects — condensed cards on home, full detail on projects.html
-fetch('data/projects.json')
-    .then(response => response.json())
-    .then(projectsData => {
-        if (!projectsData || projectsData.length === 0) {
-            hideSection('projects');
-            return;
-        }
-        const projectsGrid = document.getElementById('projectsGrid');
-        if (projectsGrid) {
-            const renderProjectCondensed = (project) => {
-                const tagsHTML = project.tags
-                    ? project.tags.map(tag => {
-                        const tagClass = tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                        return `<span class="tag tag-${tagClass}">${tag}</span>`;
-                    }).join('')
-                    : '';
-                const metricsHTML = project.metrics
-                    ? project.metrics.map(m => `<span class="metric-chip">${m}</span>`).join('')
-                    : '';
-                const techHTML = project.techStack
-                    .map(t => `<span class="tech-tag">${t}</span>`).join('');
-                return `
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon"><i class="${project.icon}"></i></div>
-                        <h3 class="project-title">${project.title}</h3>
-                    </div>
-                    <div class="project-content">
-                        ${tagsHTML ? `<div class="project-tags">${tagsHTML}</div>` : ''}
-                        <p class="project-description">${project.description}</p>
-                        ${metricsHTML ? `<div class="project-metrics">${metricsHTML}</div>` : ''}
-                        <div class="project-tech-stack">${techHTML}</div>
-                        <div class="project-card-footer">
-                            <a href="${project.github}" class="project-card-readme" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> README
-                            </a>
-                            ${project.demo ? `<a href="${project.demo}" class="project-card-demo" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>` : ''}
-                        </div>
-                    </div>
-                </div>`;
-            };
-
-            const homeProjects = projectsData.filter(p => p.showOnHome !== false);
-            projectsGrid.innerHTML = homeProjects.map(renderProjectCondensed).join('');
-
-            // "View Full Case Studies" button → dedicated projects page
-            const viewMoreContainer = document.createElement('div');
-            viewMoreContainer.className = 'view-more-container';
-            viewMoreContainer.innerHTML = `
-                <a href="src/projects.html" class="view-more-btn">
-                    <i class="fas fa-layer-group"></i>
-                    View Full Case Studies
-                </a>`;
-            projectsGrid.parentElement.appendChild(viewMoreContainer);
-        }
-    })
-    .catch(error => console.error('Error loading projects:', error));
-
-// Insights JSON Loading
-Promise.all([
-    fetch('data/insights.json').then(r => r.json()),
-    fetch('data/insights-meta.json').then(r => r.json())
-])
-    .then(([insightsData, insightsMeta]) => {
-        const insightsGrid = document.getElementById('insightsGrid');
-        if (!insightsGrid) return;
-
-        const hasContent = Object.values(insightsData).some(posts => posts.length > 0);
-        if (!hasContent) {
-            hideSection('learning');
-            return;
-        }
-
-        for (const [section, posts] of Object.entries(insightsData)) {
-            const meta = insightsMeta[section];
-            const previewPosts = posts.filter(p => p.showOnHome).slice(0, 4).map(post =>
-                `<a href="${post.url}" target="_blank" class="insight-content-item">
-                    <i class="fas fa-arrow-right insight-arrow"></i>
-                    <span class="insight-content-text">${post.title}</span>
-                    <i class="fas fa-external-link-alt insight-external-icon"></i>
-                </a>`
-            ).join('');
-            insightsGrid.innerHTML += `
-                <div class="insight-tile">
-                    <div class="insight-top">
-                        <div class="insight-header">
-                            <span class="insight-icon"><i class="${meta.icon}"></i></span>
-                            <div><h3 class="insight-title">${meta.title}</h3></div>
-                        </div>
-                        <div class="insight-desc">${meta.desc}</div>
-                    </div>
-                    <div class="insight-links-area">
-                        <div class="insight-content-list">${previewPosts}</div>
-                        <a class="insight-more" href="src/insights.html?section=${section}">${meta.moreLabel} &rarr;</a>
-                    </div>
-                </div>
-            `;
-        }
-    })
-    .catch(err => console.error('Error loading insights:', err));
-
-// Navigation and Scroll Behavior
-const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('.section, .hero');
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
+// ─── Nav: scroll behaviour ─────────────────────────────────────────
 let ticking = false;
-
-function updateNavbar() {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    ticking = false;
-}
-
 window.addEventListener('scroll', () => {
-    if (!ticking) {
-        requestAnimationFrame(updateNavbar);
-        ticking = true;
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// ─── Smooth scroll for anchor links ───────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
     }
+  });
 });
 
-const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = entry.target.id;
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}, {
-    threshold: 0.15,
-    rootMargin: '-80px 0px -30% 0px'
-});
+// ─── Active nav highlight ──────────────────────────────────────────
+const navLinks = document.querySelectorAll('.nav-link');
+const navObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-72px 0px -30% 0px' });
+document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
 
-sections.forEach(section => navObserver.observe(section));
-
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('active');
-            }, index * 100);
-        }
-    });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
-
+// ─── Reveal on scroll ──────────────────────────────────────────────
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('active'), index * 80);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+// ─── Ripple effect on .btn ─────────────────────────────────────────
 document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function (e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-
-        ripple.classList.add('ripple');
-        ripple.style.width = `${size}px`;
-        ripple.style.height = `${size}px`;
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-
-        this.style.position = 'relative';
-        this.style.overflow = 'hidden';
-        this.appendChild(ripple);
-
-        setTimeout(() => ripple.remove(), 600);
-    });
+  button.addEventListener('click', function (e) {
+    const ripple = document.createElement('span');
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    ripple.classList.add('ripple');
+    ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px`;
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
 });
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-navigation');
-    }
-});
+// ─── Helper: skill proficiency dots ───────────────────────────────
+function renderDots(score) {
+  const s = parseInt(score);
+  const filled = s >= 9 ? 5 : s >= 7 ? 4 : s >= 6 ? 3 : 2;
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="skill-dot${i < filled ? ' filled' : ''}"></span>`
+  ).join('');
+}
 
-document.addEventListener('mousedown', () => {
-    document.body.classList.remove('keyboard-navigation');
-});
+// ─── EXPERIENCE ────────────────────────────────────────────────────
+fetch('data/experience.json')
+  .then(r => r.json())
+  .then(data => {
+    if (!data || !data.length) { hideSection('experience'); return; }
+    const homeData = data.filter(e => e.showOnHome !== false);
+    const grid = document.querySelector('.exp-grid, .timeline-grid');
+    if (!grid) return;
+    grid.innerHTML = homeData.map((exp, i) => `
+      <div class="exp-card${i === homeData.length - 1 ? ' current' : ''}">
+        ${i === homeData.length - 1 ? '<span class="exp-now">Current</span>' : ''}
+        <div class="exp-dot">${exp.year}</div>
+        <h3 class="exp-title">${exp.title}</h3>
+        <p class="exp-co">${exp.company}</p>
+        <p class="exp-dur">${exp.duration}</p>
+        <ul class="exp-list">
+          ${exp.achievements.slice(0, 3).map(a => `<li>${a}</li>`).join('')}
+        </ul>
+      </div>`).join('');
+  })
+  .catch(err => console.error('Error loading experience:', err));
 
+// ─── PROJECTS ──────────────────────────────────────────────────────
+fetch('data/projects.json')
+  .then(r => r.json())
+  .then(data => {
+    if (!data || !data.length) { hideSection('projects'); return; }
+    const grid = document.getElementById('projectsGrid');
+    if (!grid) return;
+    const homeProjects = data.filter(p => p.showOnHome !== false);
+    grid.innerHTML = homeProjects.map(p => {
+      const tagsHTML = (p.tags || []).map(tag => {
+        const cls = tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        return `<span class="chip tag-${cls}">${tag}</span>`;
+      }).join('');
+      const metricsHTML = (p.metrics || []).map(m => `<span class="metric">${m}</span>`).join('');
+      const techHTML = (p.techStack || []).map(t => `<span class="tech">${t}</span>`).join('');
+      return `
+      <div class="proj-card">
+        <div class="proj-top">
+          <div class="proj-icon"><i class="${p.icon}"></i></div>
+          <h3 class="proj-name">${p.title}</h3>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">${p.description}</p>
+          ${tagsHTML ? `<div class="chips-row">${tagsHTML}</div>` : ''}
+          ${metricsHTML ? `<div class="metric-chips">${metricsHTML}</div>` : ''}
+          ${techHTML ? `<div class="tech-chips">${techHTML}</div>` : ''}
+        </div>
+        <div class="proj-foot">
+          <a href="${p.github}" class="proj-link" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+          ${p.demo ? `<a href="${p.demo}" class="proj-link" target="_blank" rel="noopener" style="margin-left:auto;color:var(--text-faint);font-size:.75rem">
+            <i class="fas fa-external-link-alt"></i> Demo
+          </a>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+
+    // "View Full Case Studies" link appended below grid
+    const viewAll = document.createElement('div');
+    viewAll.className = 'view-all';
+    viewAll.innerHTML = `<a href="src/projects.html" class="btn-outline"><i class="fas fa-layer-group"></i> View Full Case Studies</a>`;
+    grid.parentElement.appendChild(viewAll);
+  })
+  .catch(err => console.error('Error loading projects:', err));
+
+// ─── SKILLS ────────────────────────────────────────────────────────
+fetch('data/skills.json')
+  .then(r => r.json())
+  .then(data => {
+    if (!data || !data.length) { hideSection('skills'); return; }
+    const container = document.getElementById('skillsContainer');
+    const loading   = document.getElementById('skillsLoading');
+    if (loading) loading.remove();
+    if (!container) return;
+
+    const categoryIcons = {
+      'Core Automation Stack':     'fas fa-layer-group',
+      'Languages':                 'fas fa-code',
+      'DevOps & Cloud':            'fas fa-cloud',
+      'Performance & Reliability': 'fas fa-tachometer-alt',
+      'Supporting Tools':          'fas fa-tools',
+    };
+
+    const panelsHTML = data.map(cat => {
+      const icon = categoryIcons[cat['Skill Category']] || 'fas fa-circle';
+      const rows = cat.Skills.map(skill => `
+        <a href="${skill.link}" target="_blank" rel="noopener" class="skill-compact-row">
+          <div class="skill-compact-icon"><i class="${skill.icon}"></i></div>
+          <span class="skill-compact-name">${skill.name}</span>
+          <div class="skill-dots">${renderDots(skill.score)}</div>
+        </a>`).join('');
+      return `
+      <div class="skill-panel">
+        <div class="skill-panel-header">
+          <i class="${icon}"></i>
+          <span>${cat['Skill Category']}</span>
+        </div>
+        ${rows}
+      </div>`;
+    }).join('');
+
+    container.innerHTML = `<div class="skills-flex">${panelsHTML}</div>`;
+  })
+  .catch(err => {
+    const loading = document.getElementById('skillsLoading');
+    if (loading) loading.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:2rem">Failed to load skills.</p>';
+    console.error('Error loading skills:', err);
+  });
+
+// ─── TESTIMONIALS ──────────────────────────────────────────────────
+fetch('data/Testimonials.json')
+  .then(r => r.json())
+  .then(data => {
+    if (!data || !data.length) { hideSection('testimonials'); return; }
+    const grid = document.getElementById('testimonialsGrid');
+    if (!grid) return;
+    const truncate = (text, max = 480) =>
+      text.length > max ? text.slice(0, max).replace(/\s+\S*$/, '') + '…' : text;
+    const homeData = data.filter(t => t.showOnHome !== false).slice(0, 3);
+    grid.innerHTML = homeData.map(t => `
+      <div class="tcard">
+        <div class="tcard-head">
+          <img src="${t.photo}" alt="${t.name}" class="tcard-photo"/>
+          <div>
+            <div class="tcard-name">${t.name}</div>
+            <div class="tcard-role">${t.role}</div>
+            <div class="tcard-co">${t.company}</div>
+          </div>
+        </div>
+        <p class="tcard-text">"${truncate(t.text)}"</p>
+        <a href="${t.linkedin}" class="tcard-link" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i> View on LinkedIn
+        </a>
+      </div>`).join('');
+  })
+  .catch(err => { console.error('Error loading testimonials:', err); hideSection('testimonials'); });
+
+// ─── INSIGHTS ──────────────────────────────────────────────────────
+Promise.all([
+  fetch('data/insights.json').then(r => r.json()),
+  fetch('data/insights-meta.json').then(r => r.json()),
+]).then(([insightsData, insightsMeta]) => {
+  const grid = document.getElementById('insightsGrid');
+  if (!grid) return;
+  const hasContent = Object.values(insightsData).some(posts => posts.length > 0);
+  if (!hasContent) { hideSection('learning'); return; }
+
+  for (const [section, posts] of Object.entries(insightsData)) {
+    const meta = insightsMeta[section];
+    const previewPosts = posts.filter(p => p.showOnHome).slice(0, 4).map(post => `
+      <a href="${post.url}" target="_blank" rel="noopener" class="insight-content-item">
+        <i class="fas fa-arrow-right insight-arrow"></i>
+        <span class="insight-content-text">${post.title}</span>
+        <i class="fas fa-external-link-alt insight-external-icon"></i>
+      </a>`).join('');
+    grid.innerHTML += `
+      <div class="insight-tile">
+        <div class="insight-top">
+          <div class="insight-header">
+            <span class="insight-icon"><i class="${meta.icon}"></i></span>
+            <div><h3 class="insight-title">${meta.title}</h3></div>
+          </div>
+          <div class="insight-desc">${meta.desc}</div>
+        </div>
+        <div class="insight-links-area">
+          <div class="insight-content-list">${previewPosts}</div>
+          <a class="insight-more" href="src/insights.html?section=${section}">${meta.moreLabel} &rarr;</a>
+        </div>
+      </div>`;
+  }
+}).catch(err => { console.error('Error loading insights:', err); hideSection('learning'); });
+
+// ─── CERTIFICATIONS ────────────────────────────────────────────────
+fetch('data/certifications.json')
+  .then(r => r.json())
+  .then(data => {
+    if (!data || !data.length) { hideSection('certifications'); return; }
+    const grid = document.getElementById('certificationsGrid');
+    if (!grid) return;
+    const homeData = data.filter(c => c.showOnHome !== false);
+    grid.innerHTML = homeData.map(cert => `
+      <div class="cert-card">
+        <div class="cert-icon"><i class="${cert.icon}"></i></div>
+        <h3 class="cert-title">${cert.name}</h3>
+        <p class="cert-issuer">${cert.issuer}</p>
+        <p class="cert-year">Issued ${cert.year}</p>
+        ${cert.description ? `<p class="cert-description">${cert.description}</p>` : ''}
+      </div>`).join('');
+  })
+  .catch(err => { console.error('Error loading certifications:', err); hideSection('certifications'); });
+
+// ─── On load ───────────────────────────────────────────────────────
 window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    window.dispatchEvent(new Event('scroll'));
-
-    // Handle hash in URL — scroll with navbar offset
-    if (window.location.hash) {
-        const target = document.querySelector(window.location.hash);
-        if (target) {
-            setTimeout(() => {
-                window.scrollTo({
-                    top: target.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }, 100);
-        }
+  document.body.classList.add('loaded');
+  window.dispatchEvent(new Event('scroll'));
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      setTimeout(() => window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' }), 150);
     }
+  }
 });

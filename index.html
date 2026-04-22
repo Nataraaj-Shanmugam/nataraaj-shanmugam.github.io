@@ -49,113 +49,169 @@
     <title>Nataraaj Shanmugam | Quality Engineering Leader</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./src/index.css">
 </head>
 
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-content">
-            <a href="#home" class="nav-logo"><img src="public/logo.png" alt="Nataraaj Shanmugam logo"></a>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <nav class="nav navbar" id="navbar">
+        <div class="nav-inner nav-content">
+            <a href="#home" class="nav-brand nav-logo">Nataraaj S.</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
             </button>
-            <ul class="nav-menu" id="navMenu">
+            <ul class="nav-links nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#learning" class="nav-link">Linked Posts</a></li>
+                <li><a href="#learning" class="nav-link">Insights</a></li>
                 <li><a href="#certifications" class="nav-link">Credentials</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="Nataraaj_Shanmugam_Resume.pdf" class="nav-link resume-link" download><i
+                <li><a href="Nataraaj_Shanmugam_Resume.pdf" class="nav-link nav-cta resume-link" download><i
                             class="fas fa-download"></i> Resume</a></li>
             </ul>
         </div>
     </nav>
+
     <main id="main-content">
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Nataraaj Shanmugam</h1>
-                    <h2 class="hero-subtitle">Quality Engineering Leader</h2>
 
-                    <div class="hero-description-merged">
-                        <p>
-                            I build quality at scale — turning fragile test suites into <strong>self-healing infrastructure</strong>,
-                            shipping <strong>AI-powered internal tools</strong> that teams actually adopt, and standing up
-                            <strong>QA organizations from scratch</strong> at India's largest fintech platforms.
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-shape"></div>
+            <div class="container">
+                <div class="hero-grid">
+
+                    <div>
+                        <div class="hero-available">
+                            <span class="hero-available-dot"></span>
+                            <span class="hero-available-text">Open to opportunities</span>
+                        </div>
+                        <p class="hero-role">Quality Engineering Leader &middot; Lead SDET</p>
+                        <h1 class="hero-name">Nataraaj<br><em>Shanmugam</em></h1>
+                        <p class="hero-desc">
+                            I build quality at scale — turning fragile test suites into
+                            <strong>self-healing infrastructure</strong>, shipping
+                            <strong>AI-powered internal tools</strong> that teams actually adopt,
+                            and standing up <strong>QA organizations from scratch</strong>
+                            at India's largest fintech platforms.
                         </p>
-                    </div>
-
-                    <div class="pillar-badges">
-                        <span class="pillar">Framework Architecture</span>
-                        <span class="pillar">Shift-Left Strategy</span>
-                        <span class="pillar highlight">AI-Enabled QA</span>
-                        <span class="pillar">API-First Design</span>
-                        <span class="pillar highlight">AI Developer-Tools Builder</span>
-                        <span class="pillar">Team Leadership</span>
-                    </div>
-
-                    <div class="stats-grid compact-stats">
-                        <div class="stat-card stat-card-glass">
-                            <span class="stat-number stat-number-glass">10+</span>
-                            <span class="stat-label stat-label-glass">Years in QA Leadership</span>
+                        <div class="hero-cta">
+                            <a href="https://www.linkedin.com/in/nataraajshanmugam-sdet" target="_blank" rel="noopener"
+                                class="btn btn-primary">
+                                <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">
+                                <i class="fas fa-briefcase"></i> Discuss Opportunities
+                            </a>
+                            <a href="Nataraaj_Shanmugam_Resume.pdf" class="btn btn-ghost" download>
+                                <i class="fas fa-download"></i> Resume
+                            </a>
                         </div>
-                        <div class="stat-card stat-card-glass">
-                            <span class="stat-number stat-number-glass">8</span>
-                            <span class="stat-label stat-label-glass">Internal Tools Shipped</span>
-                        </div>
-                        <div class="stat-card stat-card-glass">
-                            <span class="stat-number stat-number-glass">40M+</span>
-                            <span class="stat-label stat-label-glass">Users on Platforms I've Secured</span>
-                        </div>
-                        <div class="stat-card stat-card-glass">
-                            <span class="stat-number stat-number-glass">60+</span>
-                            <span class="stat-label stat-label-glass">Engineers Mentored</span>
+                        <div class="hero-badges">
+                            <span class="badge">Framework Architecture</span>
+                            <span class="badge">Shift-Left Strategy</span>
+                            <span class="badge hot">AI-Enabled QA</span>
+                            <span class="badge">API-First Design</span>
+                            <span class="badge hot">AI Developer Tools</span>
+                            <span class="badge">Team Leadership</span>
                         </div>
                     </div>
 
-                    <div class="hero-cta">
-                        <a href="https://www.linkedin.com/in/nataraajshanmugam-sdet" class="btn btn-primary"
-                            target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
-                        <a href="Nataraaj_Shanmugam_Resume.pdf" class="btn btn-secondary" download><i
-                                class="fas fa-download"></i> Download Resume</a>
+                    <aside class="hero-impact" aria-label="Impact highlights">
+                        <div class="impact-label">By the numbers</div>
+                        <div class="impact-items">
+                            <div class="impact-item">
+                                <div class="impact-num">10<span>+</span></div>
+                                <div class="impact-text"><strong>Years in QA Leadership</strong>Cognizant · Verizon · PhonePe · Kotak</div>
+                            </div>
+                            <div class="impact-item">
+                                <div class="impact-num">40<span>M+</span></div>
+                                <div class="impact-text"><strong>Users on Platforms Secured</strong>India's largest fintech platforms</div>
+                            </div>
+                            <div class="impact-item">
+                                <div class="impact-num">8</div>
+                                <div class="impact-text"><strong>Internal Tools Shipped</strong>2 AI-powered, adopted org-wide</div>
+                            </div>
+                            <div class="impact-item">
+                                <div class="impact-num">60<span>+</span></div>
+                                <div class="impact-text"><strong>Engineers Mentored</strong>SDETs, QAs, and junior devs</div>
+                            </div>
+                            <div class="impact-item">
+                                <div class="impact-num">95<span>%</span></div>
+                                <div class="impact-text"><strong>Test Coverage Achieved</strong>Up from 40% at PhonePe</div>
+                            </div>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+            <div class="hero-divider"></div>
+        </section>
+
+        <!-- METRICS STRIP -->
+        <div class="why-strip">
+            <div class="container">
+                <div class="why-inner">
+                    <div class="why-item">
+                        <span class="why-num">61%</span>
+                        <span class="why-label">Regression time reduction</span>
                     </div>
+                    <div class="why-item">
+                        <span class="why-num">3×</span>
+                        <span class="why-label">Faster release velocity</span>
+                    </div>
+                    <div class="why-item">
+                        <span class="why-num">500+</span>
+                        <span class="why-label">Parallel test suites (AWS-native)</span>
+                    </div>
+                    <div class="why-item">
+                        <span class="why-num">$7K</span>
+                        <span class="why-label">Saved via custom tooling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <section class="section reveal" id="experience">
+            <div class="container">
+                <div class="sec-head section-header">
+                    <p class="eyebrow">Career Journey</p>
+                    <h2 class="sec-title section-title">10+ Years of Engineering Impact</h2>
+                    <p class="sec-sub section-subtitle">From enterprise automation to building QA organizations from scratch at fintech scale.</p>
+                </div>
+                <div class="timeline-container" style="position:relative">
+                    <div class="exp-spine timeline-line"></div>
+                    <div class="exp-grid timeline-grid" id="timelineGrid"></div>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="section reveal">
+        <!-- PROJECTS -->
+        <section class="section section--alt reveal" id="projects">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Professional Experience</h2>
-                    <p class="section-subtitle">10+ years at top tech and fintech companies</p>
+                <div class="sec-head section-header">
+                    <p class="eyebrow">Open Source</p>
+                    <h2 class="sec-title section-title">Tools Built for Real Problems</h2>
+                    <p class="sec-sub section-subtitle">Production-tested tooling that saves teams hours every day.</p>
                 </div>
-                <div class="timeline-container">
-                    <div class="timeline-line"></div>
-                    <div class="timeline-grid">
-                    </div>
-                </div>
+                <div class="proj-grid projects-grid" id="projectsGrid"></div>
             </div>
         </section>
 
-        <section id="projects" class="section reveal">
+        <!-- SKILLS -->
+        <section class="section reveal" id="skills">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-subtitle">Open-source tools with real-world impact</p>
+                <div class="sec-head section-header center">
+                    <p class="eyebrow">Technical Expertise</p>
+                    <h2 class="sec-title section-title text-center">Full-Stack QA Engineering</h2>
+                    <p class="sec-sub section-subtitle text-center mb-2rem">Automation, cloud infra, DevOps — across 20+ services and enterprise-scale platforms.</p>
                 </div>
-                <div class="projects-grid" id="projectsGrid"></div>
-            </div>
-        </section>
-
-        <section id="skills" class="section reveal">
-            <div class="container">
-                <h2 class="section-title text-center">Technical Expertise</h2>
-                <p class="section-subtitle text-center mb-2rem">Full-stack automation, cloud, and DevOps</p>
                 <div id="skillsContainer">
                     <div class="loading-skeleton" id="skillsLoading">
                         <div class="skeleton-grid">
@@ -168,77 +224,89 @@
             </div>
         </section>
 
-        <section id="testimonials" class="section reveal">
+        <!-- TESTIMONIALS -->
+        <section class="section section--alt reveal" id="testimonials">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">What Colleagues Say</h2>
-                    <p class="section-subtitle">Testimonials from peers, managers, and team members</p>
+                <div class="sec-head section-header">
+                    <p class="eyebrow">References</p>
+                    <h2 class="sec-title section-title">What Colleagues Say</h2>
+                    <p class="sec-sub section-subtitle">From managers, peers, and engineers I've mentored across top tech companies.</p>
                 </div>
-                <div class="testimonials-grid" id="testimonialsGrid">
-                </div>
+                <div class="test-grid testimonials-grid" id="testimonialsGrid"></div>
             </div>
         </section>
 
-        <section id="learning" class="section reveal">
+        <!-- INSIGHTS -->
+        <section class="section reveal" id="learning">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Technical Insights & Learning</h2>
-                    <p class="section-subtitle">Curated collection of technical content, tutorials, and insights</p>
+                <div class="sec-head section-header">
+                    <p class="eyebrow">Knowledge Sharing</p>
+                    <h2 class="sec-title section-title">Technical Insights &amp; Learning</h2>
+                    <p class="sec-sub section-subtitle">Curated technical content, tutorials, and insights shared with the community.</p>
                 </div>
                 <div class="insights-grid" id="insightsGrid"></div>
             </div>
         </section>
 
-        <section id="certifications" class="section reveal" style="background: var(--gray-50);">
+        <!-- CERTIFICATIONS -->
+        <section class="section section--alt reveal" id="certifications">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Credentials & Learning</h2>
-                    <p class="section-subtitle">Industry-recognized credentials demonstrating continuous learning and expertise</p>
+                <div class="sec-head section-header center">
+                    <p class="eyebrow">Credentials</p>
+                    <h2 class="sec-title section-title">Certifications &amp; Learning</h2>
+                    <p class="sec-sub section-subtitle">Industry-recognized credentials demonstrating continuous learning and expertise.</p>
                 </div>
-                <div class="certifications-grid" id="certificationsGrid">
+                <div class="certs-grid certifications-grid" id="certificationsGrid"></div>
+            </div>
+        </section>
+
+        <!-- CONTACT / CTA -->
+        <section class="cta-section section reveal" id="contact">
+            <div class="container" style="position:relative;z-index:1">
+                <p class="cta-eyebrow eyebrow">Let's Work Together</p>
+                <h2 class="cta-title section-title">Ready to Elevate<br>Your Engineering Quality?</h2>
+                <p class="cta-sub section-subtitle">Available for Lead SDET roles, QA leadership, consulting, and open-source collaboration.</p>
+                <div class="cta-btns">
+                    <a href="mailto:nataraajshanmugam08@gmail.com?subject=Career%20Opportunity" class="btn btn-white">
+                        <i class="fas fa-user-tie"></i> Discuss a Role
+                    </a>
+                    <a href="https://www.linkedin.com/in/nataraajshanmugam-sdet" target="_blank" rel="noopener"
+                        class="btn btn-outline-white">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+                <div class="contact-row contact-grid">
+                    <a href="mailto:nataraajshanmugam08@gmail.com" class="con-card contact-link">
+                        <div class="con-ico contact-icon"><i class="fas fa-envelope"></i></div>
+                        <h3 class="contact-title">Email</h3>
+                        <p>nataraajshanmugam08@gmail.com</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nataraajshanmugam-sdet" target="_blank" rel="noopener"
+                        class="con-card contact-link">
+                        <div class="con-ico contact-icon"><i class="fab fa-linkedin"></i></div>
+                        <h3 class="contact-title">LinkedIn</h3>
+                        <p>nataraajshanmugam-sdet</p>
+                    </a>
+                    <a href="https://github.com/Nataraaj-Shanmugam" target="_blank" rel="noopener"
+                        class="con-card contact-link">
+                        <div class="con-ico contact-icon"><i class="fab fa-github"></i></div>
+                        <h3 class="contact-title">GitHub</h3>
+                        <p>Nataraaj-Shanmugam</p>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section reveal">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Let's Connect</h2>
-                    <p class="section-subtitle">Available for leadership roles, collaboration, and open-source contributions</p>
-                </div>
-                <div class="contact-grid">
-                    <a href="mailto:nataraajshanmugam08@gmail.com?subject=Career%20Opportunity" class="contact-link">
-                        <div class="contact-card primary-pathway">
-                            <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
-                            <h3 class="contact-title">Career Opportunities</h3>
-                            <p>Lead SDET & QA leadership roles</p>
-                        </div>
-                    </a>
-                    <a href="https://www.linkedin.com/in/nataraajshanmugam-sdet" class="contact-link" target="_blank" rel="noopener">
-                        <div class="contact-card">
-                            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-                            <h3 class="contact-title">Connect on LinkedIn</h3>
-                            <p>Professional networking & updates</p>
-                        </div>
-                    </a>
-                    <a href="https://github.com/Nataraaj-Shanmugam" class="contact-link" target="_blank" rel="noopener">
-                        <div class="contact-card">
-                            <div class="contact-icon"><i class="fab fa-github"></i></div>
-                            <h3 class="contact-title">GitHub Projects</h3>
-                            <p>Open source projects & contributions</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="footer-text">&copy; 2026 Nataraaj Shanmugam &middot; Built with passion for quality engineering</p>
+                <p class="footer-text">&copy; 2026 Nataraaj Shanmugam &middot; Quality Engineering Leader &middot; Bengaluru, India</p>
             </div>
         </div>
     </footer>
+
     <script src="./src/main.js"></script>
 </body>
 
