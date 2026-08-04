@@ -200,7 +200,8 @@ img { display: block; max-width: 100%; }
 .hero-grid {
   background: var(--surface);
   border-radius: var(--r-3xl);
-  padding: 3.5rem 3.5rem 3.25rem;
+  padding: 3.75rem 3.5rem;
+  max-width: 880px;
 }
 .hero-available {
   display: inline-flex; align-items: center; gap: .55rem;
@@ -228,10 +229,9 @@ img { display: block; max-width: 100%; }
 }
 .hero-name br { display: none; }
 .hero-name em { font-style: normal; color: var(--text); }
-.hero-name em::before { content: ' '; }
 .hero-desc {
   font-size: 1.09rem; line-height: 1.7; color: var(--text-body);
-  max-width: 660px; margin-bottom: 1.9rem; text-wrap: pretty;
+  max-width: 620px; margin-bottom: 1.9rem; text-wrap: pretty;
 }
 .hero-desc strong { color: var(--text); font-weight: 700; }
 
@@ -263,7 +263,7 @@ img { display: block; max-width: 100%; }
 @keyframes ripple-effect { to { transform: scale(4); opacity: 0; } }
 
 /* ── HERO BADGES ──────────────────────────────────────── */
-.hero-badges { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+.hero-badges, .hero-impact { display: none; }
 .badge, .pillar {
   font-family: var(--font-body);
   font-size: .845rem; font-weight: 600; letter-spacing: 0; text-transform: none;
